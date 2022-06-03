@@ -41,8 +41,8 @@ exports.loginUser = AsyncErr( async (req, res, next)=>{
     }
 
     // check password
-    const isPasswordMatch = user.comparePassword(password);   // compare Bcrupt password with normal password
-    
+    const isPasswordMatch = await user.comparePassword(password);   // compare Bcrupt password with normal password
+    console.log(isPasswordMatch)
     if(!isPasswordMatch){
         return next(new ErrorHandler("Something went wrong...", 401));
     };
@@ -149,4 +149,138 @@ exports.resetPassword = AsyncErr(async (req, res, next)=>{
     await user.save();
 
     sendToken(user ,200, res);
+});
+
+
+// get individual details
+exports.getUserDetails = AsyncErr(async (req, res, next)=>{
+    const user= await User.findById(req.user.id);  //  req.user came from middleware
+
+    res.status(200).json({
+        success: true, 
+        user
+    })
+});
+
+
+// update user password
+exports.updatePassword = AsyncErr(async (req, res, next)=>{
+    const user= await User.findById(req.user.id).select("+password");  //  req.user came from middleware
+
+    // check password
+    const isPasswordMatch = user.comparePassword(req.body.oldPassword);   // compare Bcrupt password with normal password
+    
+    // check oldPassword and new with confirm password
+    if(!isPasswordMatch){
+        return next(new ErrorHandler("old password is incorrect...", 401));
+    };
+    if(req.body.newPassword !== req.body.confirmPassword){
+        return next(new ErrorHandler("Password does not match", 400))
+    };
+
+    user.password = req.body.newPassword;
+
+    await user.save();
+
+   sendToken(user, 200, res);
+})
+
+
+
+
+
+// update user profile
+exports.updateProfile = AsyncErr(async (req, res, next)=>{
+
+    const newUserData = {
+        name: req.body.name,
+        email: req.body.email
+    };
+
+    const user  = await User.findByIdAndUpdate(
+        req.user.id,
+        newUserData,
+        {
+            new: true,
+            runValidators: true,
+            useFindAndModify: false
+        }
+    );
+
+    res.status(200).json({
+        success: true,
+        user
+    });
+
+});
+
+
+
+// Get All Users
+exports.getAllUser = AsyncErr(async(req, res, next)=>{
+    const users = await User.find();
+
+    res.status(200).json({
+        success: true,
+        users
+    })
+});
+
+
+
+// get user details { admin }
+exports.getSingleUser = AsyncErr(async(req, res, next)=>{
+    const user = await User.findById(req.params.id);
+
+    if(!user){
+        return next(new ErrorHandler(`User does not exist with id ${req.params.id}`));
+    }
+
+    res.status(200).json({
+        success: true,
+        user
+    })
+});
+
+
+
+// User role update -- Admin
+exports.updateUserRole = AsyncErr(async(req, res, next)=>{
+    const newUserData = {
+        name: req.body.name,
+        email: req.body.email,
+        role: req.body.role
+    };
+
+    const user  = await User.findByIdAndUpdate(
+        req.params.id,
+        newUserData,
+        {
+            new: true,
+            runValidators: true,
+            useFindAndModify: false
+        }
+    );
+
+    res.status(200).json({
+        success: true,
+        user
+    });
+});
+
+
+
+// Delete User -- Admin
+exports.DeleteUser = AsyncErr(async(req, res, next)=>{
+    const user = await User.findById(req.params.id);
+
+    if(!user){
+        return next(new ErrorHandler("User does not exist with this id", 401))
+    }
+
+    await user.remove();  // this is used to remove user from the DB by Admin
+
+    res.status(200).json({
+        success: true,
+    })
 })
