@@ -2,6 +2,11 @@ import {
     All_Product_Success,
     All_Product_Request,
     All_Product_Fail,
+
+    Product_Details_Fail,
+    Product_Details_Request,
+    Product_Details_Success,
+    
     Clear_Err
 } from "../Constants/productConstant";
 
@@ -9,6 +14,7 @@ import {
 export const productReducer =( state={ products: [] } , action)=>{
 
         switch (action.type){
+            
             case All_Product_Request:  //  this is used when req is send to server
                 return {
                     loading: true,
@@ -35,3 +41,34 @@ export const productReducer =( state={ products: [] } , action)=>{
                 return state;                
         }
     };
+
+
+export const productDetailsReducer =( state={ products: {} } , action)=>{
+
+    switch (action.type){
+
+        case Product_Details_Request:  //  this is used when req is send to server
+            return {
+                loading: true,
+                ...state
+            }
+        case Product_Details_Success:       //this is working when res is come from server
+            return {
+                loading: false,
+                product : action.payload,           
+            }
+        case Product_Details_Fail:
+            return {
+                loading: false,
+                error : action.payload
+            }
+        case Clear_Err:
+            return {
+                ...state,
+                error : null
+            }
+        
+        default:
+            return state;                
+    }
+};

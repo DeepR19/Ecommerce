@@ -8,10 +8,13 @@ import Additional from '../layout/Additional';
 
 import { getProduct } from '../../Actions/productAction';
 import "./home.scss";
+import Loading from '../layout/Loading/Loading';
 
-
+// import {useAlert} from "react-alert";
 
 export default function Home() {
+
+  // const alert = userAlert();
 
   const dispatch = useDispatch();
 
@@ -19,41 +22,52 @@ export default function Home() {
   const {loading, error, products, productsCount} = useSelector(state => state.products)
 
   useEffect(()=>{
+
+    // if(error){
+    //   return alert.error(error);
+    // }
+
     dispatch(getProduct())  // this send res to the productAction module
   } , [dispatch])
-
+  // error in dependency
   return (
-    <>
-    {/* additional is used to add meta data about page */}
-      <Additional title="DeepR19 | Ecommerce"/>
+    <> 
+      { loading? 
+          <Loading/>:(
+          <>
+          {/* additional is used to add meta data about page */}
+            <Additional title="DeepR19 | Ecommerce"/>
 
-      <Header/>
+            <Header/>
 
-      <div className="homeContainer">
-        <p>Welcome to Ecommerce</p>
+            <div className="homeContainer">
+              <p>Welcome to Ecommerce</p>
 
-        <h1>Find Amazing products Below</h1>
+              <h1>Find Amazing products Below</h1>
 
-        <a href="...">
-          <button>
-            Scroll
-          </button>
-        </a>
-      </div>
+              <a href="...">
+                <button>
+                  Scroll
+                </button>
+              </a>
+            </div>
 
 
-      <div className="homeHeading">
-        Featured Products
-      </div>
+            <div className="homeHeading">
+              Featured Products
+            </div>
 
-      <div className="container" id="container">
-        {
-          products && products.map((item)=>(
-            <Product product={item} />
+            <div className="container" id="container">
+              {
+                products && products.map((item)=>(
+                  <Product product={item} />
 
-          ))
-        }
-      </div> 
+                ))
+              }
+            </div> 
+          </>
+        )
+      }
     </>
   )
 }

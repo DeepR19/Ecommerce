@@ -7,13 +7,23 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import store from './store';
 
+// import {position, transition, Provider as AlertProvider} from "react-alert";
+// import AlertTemplate from "react-alert-template-basic";
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
+// const options ={
+//   timeout: 5000,
+//   position: position.BOTTOM_CENTER,
+//   transition: transition.Scale
+// }
 
 root.render(
   // Redux Provider is used as a store in All subfolder
   <Provider store={store}>  
-    <App />
+    {/* <AlertProvider template={AlertTemplate} {...options}> */}
+      <App />
+    {/* </AlertProvider> */}
   </Provider>
 );
 

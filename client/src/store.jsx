@@ -6,10 +6,11 @@ import {
 
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
-import { productReducer } from "./Reducers/productReducer";
+import { productDetailsReducer, productReducer } from "./Reducers/productReducer";
 
 const reducer = combineReducers({
-    products: productReducer
+    products: productReducer,
+    productDetails: productDetailsReducer
 });
 
 let initialState = {};
