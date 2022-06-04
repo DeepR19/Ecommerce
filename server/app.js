@@ -13,11 +13,13 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
 const product = require("./routes/prodRoute");
+const order = require("./routes/orderRoute");
 const user = require("./routes/userRoute");
 
 // Use all routes
 app.use("/api/vi", product);
 app.use("/api/vi", user);
+app.use("/api/vi", order)   ;
 
 // MiddleWare for Errors
 app.use(errorMiddleWare)
