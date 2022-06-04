@@ -21,7 +21,7 @@ exports.createProd = AsyncErr(async (req, res , next)=>{
 exports.getAllProducts = AsyncErr(async (req, res)=>{
 
     const resuluPerPage = 2 ; // no of page is show on find query
-    const noOfProduct = await Product.countDocuments() // return no of element in DB
+    const productCount = await Product.countDocuments() // return no of element in DB
 
     const apiFeature = new ApiFeatures(Product.find(), req.query)
     .search()
@@ -33,7 +33,7 @@ exports.getAllProducts = AsyncErr(async (req, res)=>{
     res.status(200).json({
         message: "ROUTE is working fine...",
         prod,
-        noOfProduct
+        productCount
     })
 });
 
