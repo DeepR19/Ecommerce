@@ -24,7 +24,9 @@ export const productReducer =( state={ products: [] } , action)=>{
                 return {
                     loading: false,
                     products : action.payload.prod,         // this products is pass when useSelector is called
-                    productsCount : action.payload.productsCount
+                    productsCount : action.payload.productsCount,
+                    resuluPerPage: action.payload.resuluPerPage,
+                    filteredProductsCount : action.payload.filteredProductsCount
                 }
             case All_Product_Fail:
                 return {
@@ -55,7 +57,8 @@ export const productDetailsReducer =( state={ products: {} } , action)=>{
         case Product_Details_Success:       //this is working when res is come from server
             return {
                 loading: false,
-                product : action.payload,           
+                product : action.payload.product,
+                productsCount: action.payload.productCount,
             }
         case Product_Details_Fail:
             return {

@@ -20,20 +20,34 @@ exports.createProd = AsyncErr(async (req, res , next)=>{
 // read all product
 exports.getAllProducts = AsyncErr(async (req, res)=>{
 
-    const resuluPerPage = 2 ; // no of page is show on find query
+    const resuluPerPage =8 ; // no of page is show on find query
     const productCount = await Product.countDocuments() // return no of element in DB
 
+    const apiFeaturess = new ApiFeatures(Product.find(), req.query)
+    .search()
+    .filter()
+    
     const apiFeature = new ApiFeatures(Product.find(), req.query)
     .search()
     .filter()
-    .pagination(resuluPerPage);
+    .pagination(resuluPerPage)
 
-    const prod = await apiFeature.query;  // it will do find query <--> with some updates
+    let prod1 = await apiFeaturess.query;
+    let prod = await apiFeature.query;
+
+    let filteredProductsCount = prod1.length;
+    // apiFeature.pagination(resuluPerPage);
+    
+    // prod = await apiFeature.query;
+
+      // it will do find query <--> with some updates
 
     res.status(200).json({
         message: "ROUTE is working fine...",
         prod,
-        productCount
+        productCount,
+        resuluPerPage,
+        filteredProductsCount
     })
 });
 
@@ -85,7 +99,6 @@ exports.deleteProd = AsyncErr(async (req, res, next)=>{
 // get single product details
 exports.getProductDetails = AsyncErr(async (req, res, next)=>{
     const product =await Product.findById(req.params.id);
-
     if(!product){
         return next(new ErrorHandler("Product Not Found", 404))
     };

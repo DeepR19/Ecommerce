@@ -13,19 +13,25 @@ import {
 } from "../Constants/productConstant";
 
 
-export const getProduct = () => async (dispatch)=>{   // this function res is came from home useEffect to take the data
+export const getProduct = (keyword="", currentPage=1, price=[0, 3000] , category , rating=0 ) => async (dispatch)=>{   // this function res is came from home useEffect to take the data
     try{
         dispatch({
             type: All_Product_Request
         });
+        let link = `/api/vi/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&rating[gte]=${rating}`
 
-        const {data} = await axios.get("/api/vi/products");
+        if(category){
+            link = `/api/vi/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&category=${category}&rating[gte]=${rating}`
+        }
+
+        const {data} = await axios.get(link);
 
         dispatch({
             type: All_Product_Success,
             payload: data
         })
     }catch(err){
+        console.log(err)
         dispatch({
             type: All_Product_Fail,
             payload: err.response.data.message 
@@ -44,7 +50,7 @@ export const getProductDetails = (id) => async (dispatch)=>{   // this function 
 
         dispatch({
             type: Product_Details_Success,
-            payload: data.product
+            payload: data
         })
     }catch(err){
         dispatch({

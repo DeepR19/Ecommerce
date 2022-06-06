@@ -1,6 +1,7 @@
 const app =  require("./app");
 const dotenv = require("dotenv");
 const ConnDB = require("./config/db");
+const cloudinary = require("cloudinary");
 
 // handle uncaught exception
 process.on("uncaughtException", err=>{
@@ -18,6 +19,14 @@ dotenv.config({
 
 // Connect DB
 ConnDB();
+
+// connect cloudinary {for image upload}
+cloudinary.config({
+    cloud_name: process.env.Cloudinary_Name,
+    api_key: process.env.Cloudinary_API_Key,
+    api_secret: process.env.Cloudinary_API_Secret,
+});
+
 
 const PORT = process.env.PORT || 3000;
 

@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
 import {useDispatch, useSelector} from "react-redux"
-import {clearErr, getProductDetails} from "../../Actions/productAction";
+import {getProductDetails} from "../../Actions/productAction";
 import ReactStars from 'react-rating-stars-component';
 import Carousel from "react-material-ui-carousel"
 import ReviewCard from "./ReviewCard.jsx"
 import Loading from '../layout/Loading/Loading';
+import { useParams } from 'react-router-dom';
+import Additional from "../layout/Additional"
 
 // import {useAlert} from "react-alert";
 
@@ -15,48 +17,51 @@ import Loading from '../layout/Loading/Loading';
 
 
 export default function ProductDetails({match}) {
-
+    let {id} = useParams();
     const dispatch = useDispatch();
     // const alert = useAlert();
-
+    
     const {product, loading, error} = useSelector(state => state.productDetails)
 
     useEffect(()=>{
-
         // if(error){
         //     alert.error(error);
         //     dispatch(clearErr());
         // }
+        console.log(id)
+            dispatch(getProductDetails(id))
+    },[dispatch, id])
+   
 
-        dispatch(getProductDetails(match.params.id))
-    },[dispatch, match.params.id])
-   
-   
+
     const options = {
         edit: false,
         color: "rgba(20,20,20,0.1)",
         activeColor: "tomato",
         size: window.innerWidth < 600 ? 20 : 25,
-        value: product.ratings,
+        value: product ? (product.rating) : 0,
         isHalf: true
       }
   return (
         <>
         {loading? <Loading/>:
+            (product && !loading) ?
         <>
+            <Additional title={`DeepR19 | Product Details`}/>
+
             <div className="productDetails">
                 <div>
                     <Carousel>
                         {
                             product.images &&
-                            product.images.map((item, i)=>{
+                            product.images.map((item, i)=>(
                                 <img
                                     className='carouselImage'
                                     key={item.url}
                                     src={item.url}
                                     alt={`${i} slide`}
                                 />
-                            })
+                            ))
                         }
                     </Carousel>
                 </div>
@@ -69,7 +74,7 @@ export default function ProductDetails({match}) {
 
                     <div className="detailsBlock-2">
                         <ReactStars {...options}/>
-                        <span>({product.numOfReviews}) Reviews</span>
+                        <span>({product.numOfReview}) Reviews</span>
                     </div>
 
                     <div className="detailsBlock-3">
@@ -78,7 +83,7 @@ export default function ProductDetails({match}) {
                         <div className="detailsBlock-3-1">
                             <div className="detailsBlock-3-1-1">
                                 <button>-</button>
-                                <input type="number" value="1" name="quantity" />
+                                <input type="number" name="quantity" />
                                 <button>+</button>
                             </div>
 
@@ -112,6 +117,8 @@ export default function ProductDetails({match}) {
             : <p className='noReviews'>No Reviews Yet</p>
             }
             </>
+            :<Loading/>
+        
         }
         </>
     )

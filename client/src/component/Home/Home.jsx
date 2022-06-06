@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import Header from "../layout/Header/Header";
-import Product from './Product';
+import ProductCard from './ProductCard';
 
 import Additional from '../layout/Additional';
 
@@ -59,8 +59,8 @@ export default function Home() {
 
             <div className="container" id="container">
               {
-                products && products.map((item)=>(
-                  <Product product={item} />
+                products && products.map((item, i)=>(
+                  <ProductCard product={item} key={i}/>
 
                 ))
               }
