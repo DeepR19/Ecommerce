@@ -54,7 +54,6 @@ exports.loginUser = AsyncErr( async (req, res, next)=>{
 
     // check password
     const isPasswordMatch = await user.comparePassword(password);   // compare Bcrupt password with normal password
-    console.log(isPasswordMatch)
     if(!isPasswordMatch){
         return next(new ErrorHandler("Something went wrong...", 401));
     };
@@ -204,10 +203,24 @@ exports.updatePassword = AsyncErr(async (req, res, next)=>{
 // update user profile
 exports.updateProfile = AsyncErr(async (req, res, next)=>{
 
+   
+    const myCloud = await cloudinary.v2.uploader.upload(
+        req.body.avatar ,
+        {
+            folders: "avatars",
+            width: 150,
+            crop: "scale"
+        }
+    )
+
     const newUserData = {
         name: req.body.name,
-        email: req.body.email
-    };
+        email: req.body.email,
+        avatar: {
+            public_id: myCloud.public_id,
+            url: myCloud.secure_url
+        }
+    }
 
     const user  = await User.findByIdAndUpdate(
         req.user.id,

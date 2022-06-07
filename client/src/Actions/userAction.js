@@ -10,7 +10,10 @@ import {
     load_User_Success,
     load_User_Fail,
     Logout_Success,
-    Logout_Fail
+    Logout_Fail,
+    Update_Profile_Request,
+    Update_Profile_Success,
+    Update_Profile_Fail
 } from "../Constants/userConstant";
 
 import axios from "axios";
@@ -123,6 +126,40 @@ export const logout =  () => async (dispatch) => {
         })
     }
 }
+
+
+// updateProfile part
+export const updateProfile =  (userData) => async (dispatch) => {
+    try {
+        dispatch({
+            type: Update_Profile_Request
+        });
+
+        const config = {
+            headers: {
+                "Content-Type": "multipart/form-data"
+            }
+        };
+
+        const {data} = await axios.put(
+            '/api/vi/me/update',
+            userData,
+            config
+        );
+
+        dispatch({
+            type: Update_Profile_Success,
+            payload: data.success
+        })
+    } catch (error) {
+        dispatch({
+            type: Update_Profile_Fail,
+            payload: error.responce.data.message
+        })
+    }
+
+}
+
 
 
 // user to clear the errors

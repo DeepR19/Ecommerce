@@ -10,7 +10,11 @@ import {
     load_User_Request,
     load_User_Success,
     Logout_Success,
-    Logout_Fail
+    Logout_Fail,
+    Update_Profile_Request,
+    Update_Profile_Success,
+    Update_Profile_Fail,
+    Update_Profile_Reset
 } from "../Constants/userConstant";
 
 export const userReducer =  (state = {user: {} }, action ) =>{
@@ -69,4 +73,45 @@ export const userReducer =  (state = {user: {} }, action ) =>{
         default:
             return state
     }
-}
+};
+
+
+
+// update profile data
+export const profileReducer =  (state = {profile: {} }, action ) =>{
+    switch (action.type){
+        case Update_Profile_Request:
+            return {
+                loading : true,
+                ...state
+            }
+        case Update_Profile_Success:
+            return{
+                ...state,
+                loading: false,
+                isUpdated: action.payload,
+                
+            }
+        case Update_Profile_Fail:
+            return{
+                ...state,
+                loading: false,
+                error: action.payload,
+            }
+        case Update_Profile_Reset:
+            return{
+                ...state,
+                isUpdated: false
+            }
+        
+        case Clear_Err:
+            return {
+                ...state,
+                error : null
+            }
+        
+        default:
+            return state
+    }
+};
+
