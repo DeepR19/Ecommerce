@@ -5,11 +5,18 @@ import {
     Clear_Err,
     Register_User_Fail,
     Register_User_Request,
-    Register_User_Success
+    Register_User_Success,
+    load_User_Request,
+    load_User_Success,
+    load_User_Fail,
+    Logout_Success,
+    Logout_Fail
 } from "../Constants/userConstant";
 
 import axios from "axios";
 
+
+// login part
 export const login =  (email, password) => async (dispatch) => {
     try {
         dispatch({
@@ -41,7 +48,7 @@ export const login =  (email, password) => async (dispatch) => {
 };
 
 
-
+// register part
 export const register =  (userData) => async (dispatch) => {
     try {
         dispatch({
@@ -71,6 +78,50 @@ export const register =  (userData) => async (dispatch) => {
         })
     }
 
+}
+
+
+// Load user
+export const loadUser =  (email, password) => async (dispatch) => {
+    try {
+        dispatch({
+            type: load_User_Request
+        });
+
+        const {data}= await axios.get(
+            '/api/vi/me',
+        );
+        
+        dispatch({
+            type: load_User_Success,
+            payload: data
+        })
+    } catch (error) {
+        dispatch({
+            type: load_User_Fail,
+            payload: error.response.data.message 
+        })
+    }
+}
+
+
+// logout action
+export const logout =  () => async (dispatch) => {
+    try {
+       
+        await axios.post(
+            '/api/vi/logout',
+        );
+        
+        dispatch({
+            type: Logout_Success
+        })
+    } catch (error) {
+        dispatch({
+            type: Logout_Fail,
+            payload: error.response.data.message 
+        })
+    }
 }
 
 

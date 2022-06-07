@@ -52,8 +52,8 @@ export default function Signup() {
    // submit data 
     const registerSubmit = (e)=>{
         e.preventDefault();
-        
         <Loading/>
+        
         dispatch(
             register(user)
         )
