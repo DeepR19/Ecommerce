@@ -1,25 +1,25 @@
 import React, {useState, useEffect} from 'react'
 import Loading from "../layout/Loading/Loading";
-import {useNavigate} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import { useDispatch, useSelector} from "react-redux";
-import {updatePassword} from "../../Actions/userAction"
-import { Update_Password_Reset } from '../../Constants/userConstant';
 import LockOpenIcon from "@material-ui/icons/LockOpen";
-import VpenKeyIcon from "@material-ui/icons/VpnKey";
 import LockIcon from "@material-ui/icons/Lock";
+import { resetPassword } from '../../Actions/userAction';
 
-export default function UpdatePassword() {
+export default function ResetPassword() {
+
     const dispatch = useDispatch();
+
+    const token = useParams();
     const navigate = useNavigate();
 
-    const {isUpdated, loading} = useSelector(state => state.profile)
+    const {success, loading} = useSelector(state => state.forgotPassword)
 
+    
     const [password, setPassword] = useState({
-        oldPassword: "",
-        newPassword: "",
+        password: "",
         confirmPassword: ""
     });
-    // const {old, new, confirm} = password
 
     // set value of the attrib
     const handleData = (e)=>{
@@ -35,22 +35,19 @@ export default function UpdatePassword() {
     const updateProfileSubmit = (e)=>{
         e.preventDefault();
         dispatch(
-            updatePassword(password)
+            resetPassword(token, password)
         )
     };
 
 
     useEffect(()=>{
 
-        if(isUpdated){
-            navigate('/account');
+        if(success){
+           alert("Password Updated")
 
-            dispatch({
-                type: Update_Password_Reset
-            })
-
+           navigate("/login")
         }
-    } , [isUpdated, dispatch, navigate])
+    } , [success, dispatch, navigate])
 
   return (
     <>
@@ -66,17 +63,7 @@ export default function UpdatePassword() {
             encType='multipart/form-data'
             onSubmit={updateProfileSubmit}>
 
-            <div className="SignupNameBox">
-                <VpenKeyIcon/>
-
-                <input type="password" 
-                    name="oldPassword"
-                    placeholder='Enter your old Password'
-                    required
-                    value={password.oldPassword}
-                    onChange={handleData} />
-
-            </div>
+           
             <div className="SignupEmailBox">
             <LockOpenIcon/>
 
@@ -84,7 +71,7 @@ export default function UpdatePassword() {
                     name="newPassword"
                     placeholder='Enter New Password'
                     required
-                    value={password.newPassword}
+                    value={password.Password}
                     onChange={handleData} />
 
             </div>

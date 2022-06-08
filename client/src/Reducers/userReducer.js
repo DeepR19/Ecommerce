@@ -21,7 +21,10 @@ import {
     Update_Password_Reset,
     Forgot_Password_Request,
     Forgot_Password_Success,
-    Forgot_Password_Fail
+    Forgot_Password_Fail,
+    Reset_Password_Request,
+    Reset_Password_Fail,
+    Reset_Password_Success
 } from "../Constants/userConstant";
 
 export const userReducer =  (state = {user: {} }, action ) =>{
@@ -132,6 +135,7 @@ export const profileReducer =  (state = {profile: {} }, action ) =>{
 export const forgotPasswordReducer =  (state = {profile: {} }, action ) =>{
     switch (action.type){
         case Forgot_Password_Request:
+        case Reset_Password_Request:
             return {
                 loading : true,
                 ...state
@@ -143,7 +147,15 @@ export const forgotPasswordReducer =  (state = {profile: {} }, action ) =>{
                 message: action.payload,
                 
             }
+        case Reset_Password_Success:
+            return{
+                ...state,
+                loading: false,
+                success: action.payload,
+                
+            }
         case Forgot_Password_Fail:
+        case Reset_Password_Fail:
             return{
                 ...state,
                 loading: false,

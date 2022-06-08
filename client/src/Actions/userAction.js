@@ -19,7 +19,10 @@ import {
     Update_Password_Fail,
     Forgot_Password_Request,
     Forgot_Password_Success,
-    Forgot_Password_Fail
+    Forgot_Password_Fail,
+    Reset_Password_Request,
+    Reset_Password_Success,
+    Reset_Password_Fail
 } from "../Constants/userConstant";
 
 import axios from "axios";
@@ -228,6 +231,39 @@ export const forgotPassword =  (email) => async (dispatch) => {
     }
 };
 
+
+
+// Reset Password
+export const resetPassword =  (token , password) => async (dispatch) => {
+    try {
+        dispatch({
+            type: Reset_Password_Request
+        });
+
+        const config = {
+            headers: {
+                "Content-Type": "application/json"
+            }
+        };
+
+        const {data}= await axios.put(
+            `/api/vi/pass/reset/${token}`,
+            {password},
+            config
+        );
+        
+        dispatch({
+            type: Reset_Password_Success,
+            payload: data.success
+        })
+    } catch (error) {
+        dispatch({
+            type: Reset_Password_Fail,
+            payload: error.response.data.message 
+        })
+    }
+
+}
 
 
 // user to clear the errors

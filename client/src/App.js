@@ -12,15 +12,17 @@ import UpdateProfile  from './component/User/UpdateProfile.jsx';
 import UpdatePassword from './component/User/UpdatePassword';
 import ForgotPassword from './component/User/ForgotPassword';
 import OrderMe from './component/OrdersMe/OrderMe';
+import ResetPassword from './component/User/ResetPassword';
 
 import store from "./store";
 import { useEffect } from 'react';
-import { loadUser, updatePassword } from './Actions/userAction';
+import { loadUser} from './Actions/userAction';
 import { useSelector } from 'react-redux';
 
 import './App.css';
 
 function App() {
+
     const {isAuthenticated, user} = useSelector(state => state.user);
   // const location = useLocation();
     useEffect(()=>{
@@ -44,7 +46,8 @@ function App() {
             <Route exact path="/search" element={<Search/>}/>
             <Route exact path="/login" element={<Login/>}/>
             <Route exact path="/signup" element={<Signup/>}/>
-            
+            <Route exact path="/password/forgot" element={<ForgotPassword user={user}/>}/>
+            <Route exact path="/reset/:token" element={<ResetPassword/>}/>
             {isAuthenticated && 
                 <Route exact path="/me/update" element={<UpdateProfile user={user}/>}/>
              }
@@ -57,7 +60,6 @@ function App() {
             {isAuthenticated && 
                 <Route exact path="/orders/me" element={<OrderMe user={user}/>}/>
              }
-                <Route exact path="/password/forgot" element={<ForgotPassword user={user}/>}/>
 
             <Route  path="*" element={<ErrPage/>}/>
           </Routes>
