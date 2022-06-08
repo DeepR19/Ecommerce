@@ -1,0 +1,16 @@
+.cartHeadar{
+    background-color: tomato;
+    width: 90%;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 4fr 1fr 1fr;
+    color: #fff;
+    padding: 10px 0px;
+
+    p{
+        margin: 10px;
+    }
+    p:last-child{
+        text-align: end;
+    }
+}

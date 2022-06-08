@@ -1,0 +1,28 @@
+.carditem{
+    display: flex;
+    padding: 1vmax;
+    height: 8vmax;
+    align-items: flex-start;
+    box-sizing: border-box;
+    
+
+    img{
+        width: 5vmax;
+    }
+    div{
+        display: flex;
+        margin: .3vmax 1vmax;
+        flex-direction: column;
+
+       
+        span{
+            color: #0004;
+        }
+        p{
+            color: tomato;
+            font: 100 .8vmax;
+            cursor: pointer;
+        }
+    }
+
+}

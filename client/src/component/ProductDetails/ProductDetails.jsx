@@ -1,39 +1,59 @@
-import React, { useEffect } from 'react';
+import React, { useEffect , useState} from 'react';
 import {useDispatch, useSelector} from "react-redux"
 import {getProductDetails} from "../../Actions/productAction";
+// import  {Link} from "react-router-dom";
 import ReactStars from 'react-rating-stars-component';
 import Carousel from "react-material-ui-carousel"
 import ReviewCard from "./ReviewCard.jsx"
 import Loading from '../layout/Loading/Loading';
 import { useParams } from 'react-router-dom';
-import Additional from "../layout/Additional"
+import Additional from "../layout/Additional";
+import { addItemToCart } from '../../Actions/cartAction';
+
 
 // import {useAlert} from "react-alert";
 
-// npm i react-material-ui-carousel
-// @material-ui/core
-// @material-ui/icons
-// import Carousel from "react-..."
-
-
 export default function ProductDetails({match}) {
     let {id} = useParams();
+
     const dispatch = useDispatch();
-    // const alert = useAlert();
+    const [quantity, setQuantity] = useState(1);
     
     const {product, loading, error} = useSelector(state => state.productDetails)
-
     useEffect(()=>{
         // if(error){
         //     alert.error(error);
         //     dispatch(clearErr());
         // }
-        console.log(id)
-            dispatch(getProductDetails(id))
+        dispatch(getProductDetails(id))
     },[dispatch, id])
    
 
+    // increase quantity
+    const increaseQuantity =()=>{
 
+        if(quantity >= product.Stock){
+            setQuantity(quantity)
+        }else{
+            setQuantity(quantity +1)
+        }
+    };
+
+    // decrease quantity
+    const decreaseQuantity =()=>{
+        if(quantity < 2){
+            setQuantity(quantity)
+        }else{
+            setQuantity(quantity -1)
+        }
+    };
+
+    // we call reducer of add cart items { with id and quantity }
+    const addToCartHandler =()=>{
+        dispatch(addItemToCart(id, quantity))
+    }
+
+    // style of the rating stars
     const options = {
         edit: false,
         color: "rgba(20,20,20,0.1)",
@@ -82,12 +102,13 @@ export default function ProductDetails({match}) {
 
                         <div className="detailsBlock-3-1">
                             <div className="detailsBlock-3-1-1">
-                                <button>-</button>
-                                <input type="number" name="quantity" />
-                                <button>+</button>
+                                <button onClick={decreaseQuantity}>-</button>
+                                <input readOnly type="number" value={quantity} name="quantity" />
+                                <button onClick={increaseQuantity}>+</button>
                             </div>
 
-                            <button>Add To Cart</button>
+                            <button onClick={addToCartHandler}>Add To Cart</button>
+                                
                         </div>
                         
                         <p>
