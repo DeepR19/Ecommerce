@@ -18,4 +18,13 @@ export const Update_Profile_Success = "UPDATE_PROFILE_SUCCESS";
 export const Update_Profile_Reset = "UPDATE_PROFILE_RESET";
 export const Update_Profile_Fail = "UPDATE_PROFILE_FAIL";
 
+export const Update_Password_Request = "UPDATE_PASSWORD_REQUEST";
+export const Update_Password_Success = "UPDATE_PASSWORD_SUCCESS";
+export const Update_Password_Fail = "UPDATE_ PASSWORD_FAIL";
+export const Update_Password_Reset = "UPDATE_PASSWORD_RESET";
+
+export const Forgot_Password_Request = "FORGOT_PASSWORD_REQUEST";
+export const Forgot_Password_Success = "FORGOT_PASSWORD_SUCCESS";
+export const Forgot_Password_Fail = "FORGOT_ PASSWORD_FAIL";
+
 export const Clear_Err = "CLEAR_ERRORS";

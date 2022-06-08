@@ -9,10 +9,13 @@ import Signup from './component/User/Signup';
 import Account from './component/Account/Account' ;
 import UserOptions from './component/layout/Options/UserOptions';
 import UpdateProfile  from './component/User/UpdateProfile.jsx';
+import UpdatePassword from './component/User/UpdatePassword';
+import ForgotPassword from './component/User/ForgotPassword';
+import OrderMe from './component/OrdersMe/OrderMe';
 
 import store from "./store";
 import { useEffect } from 'react';
-import { loadUser } from './Actions/userAction';
+import { loadUser, updatePassword } from './Actions/userAction';
 import { useSelector } from 'react-redux';
 
 import './App.css';
@@ -48,6 +51,13 @@ function App() {
             {isAuthenticated && 
                 <Route exact path="/account" element={<Account user={user}/>}/>
              }
+            {isAuthenticated && 
+                <Route exact path="/password/update" element={<UpdatePassword user={user}/>}/>
+             }
+            {isAuthenticated && 
+                <Route exact path="/orders/me" element={<OrderMe user={user}/>}/>
+             }
+                <Route exact path="/password/forgot" element={<ForgotPassword user={user}/>}/>
 
             <Route  path="*" element={<ErrPage/>}/>
           </Routes>

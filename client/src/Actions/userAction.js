@@ -13,7 +13,13 @@ import {
     Logout_Fail,
     Update_Profile_Request,
     Update_Profile_Success,
-    Update_Profile_Fail
+    Update_Profile_Fail,
+    Update_Password_Request,
+    Update_Password_Success,
+    Update_Password_Fail,
+    Forgot_Password_Request,
+    Forgot_Password_Success,
+    Forgot_Password_Fail
 } from "../Constants/userConstant";
 
 import axios from "axios";
@@ -157,8 +163,70 @@ export const updateProfile =  (userData) => async (dispatch) => {
             payload: error.responce.data.message
         })
     }
-
 }
+
+
+// updatePassword part
+export const updatePassword =  (password) => async (dispatch) => {
+    try {
+        dispatch({
+            type: Update_Password_Request
+        });
+
+        const config = {
+            headers: {
+                "Content-Type": "application/json"
+            }
+        };
+
+        const {data} = await axios.put(
+            '/api/vi/pass/update',
+            password,
+            config
+        );
+
+        dispatch({
+            type: Update_Password_Success,
+            payload: data.success
+        })
+    } catch (error) {
+        dispatch({
+            type: Update_Password_Fail,
+            payload: error.responce.data.message
+        })
+    }
+}
+
+// login part
+export const forgotPassword =  (email) => async (dispatch) => {
+    try {
+        dispatch({
+            type: Forgot_Password_Request
+        });
+
+        const config = {
+            headers: {
+                "Content-Type": "application/json"
+            }
+        };
+
+        const {data}= await axios.post(
+            '/api/vi/pass/forgot',
+            {email},
+            config
+        );
+        
+        dispatch({
+            type: Forgot_Password_Success,
+            payload: data
+        })
+    } catch (error) {
+        dispatch({
+            type: Forgot_Password_Fail,
+            payload: error.response.data.message 
+        })
+    }
+};
 
 
 

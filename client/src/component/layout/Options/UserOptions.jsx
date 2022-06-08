@@ -37,8 +37,6 @@ export default function UserOptions({user}) {
   }
   function logoutUser(){
     dispatch(logout());
-    navigate("/login");
-    // alert("logout successful")
   }
 
 

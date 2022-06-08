@@ -55,6 +55,8 @@ exports.getSingleOrder = AsyncErr(async(req, res, next)=>{
 
 // get loggedIn user order
 exports.myOrder = AsyncErr(async(req, res, next)=>{
+
+    // cart item
     const orders = await Order.find({
         user: req.user._id
     })
