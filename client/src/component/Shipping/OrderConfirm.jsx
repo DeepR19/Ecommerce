@@ -15,8 +15,7 @@ export default function OrderConfirm() {
     ${shippingInfo.state}, 
     ${shippingInfo.pinCode}, 
     ${shippingInfo.country}, 
-    
-    `
+    `;
 
     const subtotal =cartItems.reduce(
         (acc, item) => acc + (item.price * item.quantity),

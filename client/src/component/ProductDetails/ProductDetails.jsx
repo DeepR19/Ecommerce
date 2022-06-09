@@ -107,7 +107,7 @@ export default function ProductDetails({match}) {
                                 <button onClick={increaseQuantity}>+</button>
                             </div>
 
-                            <button onClick={addToCartHandler}>Add To Cart</button>
+                            <button disabled={product.Stock < 1 ? true: false} onClick={addToCartHandler}>Add To Cart</button>
                                 
                         </div>
                         

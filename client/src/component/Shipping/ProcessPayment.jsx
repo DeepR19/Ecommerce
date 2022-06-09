@@ -15,7 +15,7 @@ import CreditCardIcon from "@material-ui/icons/CreditCard";
 import EventIcon from "@material-ui/icons/Event";
 import VpnKeyIcon from "@material-ui/icons/VpnKey"
 import { useNavigate } from 'react-router-dom';
-
+import{createOrder} from "../../Actions/orderAction";
 
 export default function ProcessPayment() {
 
@@ -23,7 +23,7 @@ export default function ProcessPayment() {
   const payBtn = useRef(null);
 
   const navigate = useNavigate()
-  const dipatch = useDispatch();
+  const dispatch = useDispatch();
   const stripe = useStripe()
   const elements = useElements();
 
@@ -32,7 +32,20 @@ export default function ProcessPayment() {
 
   const paymentData = {
     amount: Math.round(orderInfo.totalPrice * 100 ) // converting rs to paise
-  }
+  };
+
+
+  // order placed data
+  const order = {
+    shippingInfo,
+    orderItems: cartItems,
+    itemsPrice: orderInfo.subtotal,  
+    taxPrice: orderInfo.tax,
+    shippingPrice: orderInfo.shippingCharges,
+    totalPrice: orderInfo.totalPrice
+  };
+
+
 
   // submit data
   const submitHandler = async (e)=>{
@@ -79,6 +92,15 @@ export default function ProcessPayment() {
            console.warn(result.error.message)
          }else{
             if(result.paymentIntent.status === 'succeeded'){
+
+              // adding PaymentInfo in the order
+              order.paymentInfo = {
+                id: result.paymentIntent.id,
+                status: result.paymentIntent.status
+              };
+
+              dispatch(createOrder(order));
+
               navigate("/success")
             }else{
               // payBtn.current.disabled = false

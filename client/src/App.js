@@ -11,13 +11,14 @@ import UserOptions from './component/layout/Options/UserOptions';
 import UpdateProfile  from './component/User/UpdateProfile.jsx';
 import UpdatePassword from './component/User/UpdatePassword';
 import ForgotPassword from './component/User/ForgotPassword';
-import OrderMe from './component/OrdersMe/OrderMe';
 import ResetPassword from './component/User/ResetPassword';
 import Cart from './component/Cart/Cart';
 import Shipping from "./component/Shipping/Shipping.jsx";
 import OrderConfirm from './component/Shipping/OrderConfirm';
 import ProcessPayment from './component/Shipping/ProcessPayment';
-// import AppPaymentElement from './component/Shipping/AppPaymentElement';
+import OrderSuccess from './component/Shipping/OrderSuccess';
+import MyOrder from "./component/Shipping/MyOrder";
+import OrderDetails from './component/OrderDetails/OrderDetails';
 
 import store from "./store";
 import { useEffect, useState } from 'react';
@@ -47,6 +48,15 @@ function App() {
       getStripKey()
     } ,[]);
 
+
+    const learnData = (data, component)=>{
+      return(
+        isAuthenticated ?
+        <Route exact path={data} element={component}/> :
+        <Route exact path="/login" element={<Login/>}/>
+      )
+             
+    }
     
   return (
     <div className="App">
@@ -57,8 +67,6 @@ function App() {
             <Elements stripe={loadStripe(stripKey)}>
 
           <Routes>
-
-
             <Route exact path="/" element={<Home/>}/>
             <Route exact path="/product/:id" element={<ProductDetails/>}/>
             <Route exact path="/products" element={<Products/>}/>
@@ -71,31 +79,19 @@ function App() {
             <Route exact path="/cart" element={<Cart/>}/>
 
 
-            {isAuthenticated && 
-                <Route exact path="/me/update" element={<UpdateProfile user={user}/>}/>
-             }
-            {isAuthenticated && 
-                <Route exact path="/account" element={<Account user={user}/>}/>
-             }
-            {isAuthenticated && 
-                <Route exact path="/password/update" element={<UpdatePassword user={user}/>}/>
-             }
-            {isAuthenticated && 
-                <Route exact path="/orders/me" element={<OrderMe user={user}/>}/>
-             }
-            {isAuthenticated && 
-                <Route exact path="/login/shipping" element={<Shipping user={user}/>}/>
-             }
-            {isAuthenticated && 
-                <Route exact path="/order/confirm" element={<OrderConfirm user={user}/>}/>
-             }
+            <Route exact path="/me/update" element={ isAuthenticated === false? <Login/> : <UpdateProfile user={user}/>}/>
+            <Route exact path="/account" element={ isAuthenticated === false? <Login/> : <Account user={user}/>}/>
+            <Route exact path="/password/update" element={ isAuthenticated === false? <Login/> : <UpdatePassword user={user}/>}/>
+            <Route exact path="/login/shipping" element={ isAuthenticated === false? <Login/> : <Shipping user={user}/>}/>
+            <Route exact path="/order/confirm" element={ isAuthenticated === false? <Login/> : <OrderConfirm user={user}/>}/>
+            <Route exact path="/success" element={ isAuthenticated === false? <Login/> : <OrderSuccess/>}/>
+            <Route exact path="/orders" element={ isAuthenticated === false? <Login/> : <MyOrder/>}/>
+            <Route exact path="/order/:id" element={ isAuthenticated === false? <Login/> : <OrderDetails/>}/>
 
             {
               stripKey && (
                 <>
-                  {isAuthenticated && 
-                    <Route exact path="/payment" element={<ProcessPayment/>}/>
-                  }
+                    <Route exact path="/payment" element={ isAuthenticated === false? <Login/> : <ProcessPayment/>}/>
                 </>
               )
             }
