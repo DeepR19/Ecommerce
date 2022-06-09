@@ -14,28 +14,47 @@ import ForgotPassword from './component/User/ForgotPassword';
 import OrderMe from './component/OrdersMe/OrderMe';
 import ResetPassword from './component/User/ResetPassword';
 import Cart from './component/Cart/Cart';
+import Shipping from "./component/Shipping/Shipping.jsx";
+import OrderConfirm from './component/Shipping/OrderConfirm';
+import ProcessPayment from './component/Shipping/ProcessPayment';
+// import AppPaymentElement from './component/Shipping/AppPaymentElement';
 
 import store from "./store";
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { loadUser} from './Actions/userAction';
 import { useSelector } from 'react-redux';
+import axios from 'axios';
+import {Elements} from "@stripe/react-stripe-js";
+import {loadStripe} from "@stripe/stripe-js"
 
 import './App.css';
 
 function App() {
 
+    const [stripKey , setStripKey] = useState("");
     const {isAuthenticated, user} = useSelector(state => state.user);
-  // const location = useLocation();
+
+    async function getStripKey(){
+      const {data} = await axios.get("/api/vi/stripApiKey");
+
+      setStripKey(data.stripApiKey);
+    }
+    
     useEffect(()=>{
       store.dispatch(loadUser ());  // call dispatch without using useDispatch
+
+      // call server to send stripe api key
+      getStripKey()
     } ,[]);
 
+    
   return (
     <div className="App">
 
         <Router>
 
             {isAuthenticated && <UserOptions user={user}/> }
+            <Elements stripe={loadStripe(stripKey)}>
 
           <Routes>
 
@@ -64,9 +83,27 @@ function App() {
             {isAuthenticated && 
                 <Route exact path="/orders/me" element={<OrderMe user={user}/>}/>
              }
+            {isAuthenticated && 
+                <Route exact path="/login/shipping" element={<Shipping user={user}/>}/>
+             }
+            {isAuthenticated && 
+                <Route exact path="/order/confirm" element={<OrderConfirm user={user}/>}/>
+             }
+
+            {
+              stripKey && (
+                <>
+                  {isAuthenticated && 
+                    <Route exact path="/payment" element={<ProcessPayment/>}/>
+                  }
+                </>
+              )
+            }
 
             <Route  path="*" element={<ErrPage/>}/>
           </Routes>
+          </Elements>
+
         </Router>
 
     </div>

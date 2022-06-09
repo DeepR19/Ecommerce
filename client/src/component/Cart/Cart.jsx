@@ -3,8 +3,12 @@ import CartItem from "./CartItem";
 import "./Cart.scss";
 import {useSelector, useDispatch} from "react-redux";
 import {addItemToCart, RemoveFromCart} from "../../Actions/cartAction";
+import { useNavigate } from 'react-router-dom';
+
 
 export default function Cart() {
+    // const [data, setData]
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     const {cartItems} = useSelector(state=> state.cart);
 
@@ -30,6 +34,10 @@ export default function Cart() {
 
    const removeCartItem =(id)=>{
        dispatch(RemoveFromCart(id))
+   };
+
+   const handleShipping =()=>{
+       navigate("/login?redirect=shipping")
    }
 
 
@@ -88,7 +96,7 @@ export default function Cart() {
             </div>
             <div></div>
             <div className="checkOutBtn">
-                <button>Check Out</button>
+                <button onClick={handleShipping}>Check Out</button>
             </div>
         </div>
         </>

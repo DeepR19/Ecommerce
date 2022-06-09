@@ -1,15 +1,16 @@
 import React, {useEffect, useState} from 'react';
 import Loading from "../layout/Loading/Loading"
-import {Link, useNavigate} from "react-router-dom";
+import {Link, useLocation, useNavigate} from "react-router-dom";
 import MailOutlineIcon from "@material-ui/icons/MailOutline"
 import LockOpenIcon from "@material-ui/icons/LockOpen"
 
 import {useSelector, useDispatch} from "react-redux";
 import {login} from "../../Actions/userAction";
 
-export default function Login() {
+export default function Login({history, location}) {
     const [email, setEmail] =useState("")
     const [password, setPassword] =useState("")
+    // const location = useLocation();
 
     const navigate = useNavigate()
 
@@ -25,11 +26,12 @@ export default function Login() {
         )
     };
 
+    const redirect =  window.location.search? window.location.search.split("=")[1] : "/account";  // it will return the req.query like statement
     useEffect(()=>{
         if(isAuthenticated){
-            navigate("/account")
+            navigate(redirect)
         }
-    })
+    }, [isAuthenticated, redirect, navigate])
 
   return (
     <>
