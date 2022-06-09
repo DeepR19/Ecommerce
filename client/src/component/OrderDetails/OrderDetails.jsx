@@ -87,6 +87,7 @@ export default function OrderDetails() {
                                          </p>
                                 </div>
                             </div>
+                                             
                         </div>
 
                         <div className="orderDetailsCartItems">

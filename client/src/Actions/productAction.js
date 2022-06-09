@@ -9,7 +9,11 @@ import {
     Product_Details_Request,
     Product_Details_Success,
 
-    Clear_Err
+    New_Review_Request,
+    New_Review_Fail,
+    New_Review_Success,
+    
+    Clear_Err,
 } from "../Constants/productConstant";
 
 
@@ -34,6 +38,37 @@ export const getProduct = (keyword="", currentPage=1, price=[0, 3000] , category
         console.log(err)
         dispatch({
             type: All_Product_Fail,
+            payload: err.response.data.message 
+        })
+    }
+};
+
+
+export const newReview = (reviewData) => async (dispatch)=>{   // this function res is came from home useEffect to take the data
+    try{
+        dispatch({
+            type: New_Review_Request
+        });
+
+        const config = {
+            headers:{
+                "Content-Type": "application/json"
+            }
+        };
+
+        const {data} = await axios.put(
+            `/api/vi/prod/review`,
+            reviewData,
+            config
+        );
+
+        dispatch({
+            type: New_Review_Success,
+            payload: data
+        })
+    }catch(err){
+        dispatch({
+            type: New_Review_Fail,
             payload: err.response.data.message 
         })
     }

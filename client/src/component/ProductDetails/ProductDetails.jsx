@@ -1,6 +1,6 @@
 import React, { useEffect , useState} from 'react';
 import {useDispatch, useSelector} from "react-redux"
-import {getProductDetails} from "../../Actions/productAction";
+import {getProductDetails, newReview} from "../../Actions/productAction";
 // import  {Link} from "react-router-dom";
 import ReactStars from 'react-rating-stars-component';
 import Carousel from "react-material-ui-carousel"
@@ -10,6 +10,16 @@ import { useParams } from 'react-router-dom';
 import Additional from "../layout/Additional";
 import { addItemToCart } from '../../Actions/cartAction';
 
+import {
+    Dialog, 
+    DialogContent,
+    DialogTitle,
+    DialogActions,
+    Button
+} from "@material-ui/core";
+
+import {Rating} from "@material-ui/lab";
+import { New_Review_Reset } from '../../Constants/productConstant';
 
 // import {useAlert} from "react-alert";
 
@@ -18,6 +28,28 @@ export default function ProductDetails({match}) {
 
     const dispatch = useDispatch();
     const [quantity, setQuantity] = useState(1);
+
+    const [open, setOpen] = useState(false);
+    const [rating, setRating] = useState(0);
+    const [comment,  setComment] = useState("");
+
+    const submitReviewToggle = ()=>{
+        open ? setOpen(false) : setOpen(true)
+    };
+
+    const reviewSubmitHandler = ()=>{
+        const data = {
+            "rating": rating,
+            "comment": comment,
+            "productId": id
+        };
+
+        dispatch(newReview(data));
+
+        setOpen(false);
+    };
+
+    const {success} = useSelector(state => state.newReview)
     
     const {product, loading, error} = useSelector(state => state.productDetails)
     useEffect(()=>{
@@ -25,8 +57,12 @@ export default function ProductDetails({match}) {
         //     alert.error(error);
         //     dispatch(clearErr());
         // }
+        if(success){
+            dispatch({type: New_Review_Reset})
+        }
+
         dispatch(getProductDetails(id))
-    },[dispatch, id])
+    },[dispatch, id, success])
    
 
     // increase quantity
@@ -55,12 +91,10 @@ export default function ProductDetails({match}) {
 
     // style of the rating stars
     const options = {
-        edit: false,
-        color: "rgba(20,20,20,0.1)",
-        activeColor: "tomato",
-        size: window.innerWidth < 600 ? 20 : 25,
-        value: product ? (product.rating) : 0,
-        isHalf: true
+        size: "large",
+        value: product ? (product.ratings) : 0,
+        readOnly: true,
+        precision: 0.5
       }
   return (
         <>
@@ -93,7 +127,7 @@ export default function ProductDetails({match}) {
                     </div>
 
                     <div className="detailsBlock-2">
-                        <ReactStars {...options}/>
+                        <Rating {...options}/>
                         <span>({product.numOfReview}) Reviews</span>
                     </div>
 
@@ -123,18 +157,44 @@ export default function ProductDetails({match}) {
                         Description : <p>{product.description}</p>
                     </div>
 
-                    <button className="submitReview">
+                    <button className="submitReview" onClick={submitReviewToggle}>
                         Submit Review
                     </button>
                 </div>
             </div>
 
+            
+            <Dialog
+                aria-labelledby='simple-dialog-title'
+                open={open}
+                onClose={submitReviewToggle}
+            >
+                <DialogTitle>Submit Review</DialogTitle>
+
+                <DialogContent className="submitDialog">
+                    <Rating
+                        onChange={e=>setRating(e.target.value)}
+                        value={rating}
+                        size= "large"
+                    />
+
+                    <textarea name="review" cols="30" rows="5" value={comment} onChange={e=>setComment(e.target.value)}></textarea>
+                </DialogContent>
+
+                <DialogContent>
+                    <DialogActions>
+                        <Button onClick={submitReviewToggle}>Cancel</Button>
+                        <Button onClick={reviewSubmitHandler}>Submit</Button>
+                    </DialogActions>
+                </DialogContent>
+
+            </Dialog>
 
             
             <h3 className="reviewsHeading">Reviews</h3>
 
             {product.reviews && product.reviews[0] ? 
-                product.reviews.map(review=> (<ReviewCard review={review}/>))
+                product.reviews.map(review=> (<ReviewCard key={review.name} review={review}/>))
             : <p className='noReviews'>No Reviews Yet</p>
             }
             </>
