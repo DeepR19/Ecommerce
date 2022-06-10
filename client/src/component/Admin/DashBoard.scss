@@ -1,0 +1,42 @@
+.dashboard{
+    width: 100vw;
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    position: absolute;
+
+    .dashBoardContainer{
+        border-left: 1px solid #0002;
+        background-color: #fff;
+
+        h1{
+            color: #0004;
+            font: 300 2rem ;
+            text-align: center;
+            width: 50%;
+            padding: 1.5rem;
+            margin: auto;
+        }
+
+        .dashboardSummry{
+            margin: 2rem 0;
+
+            div{
+                display: flex;
+                // background-color: #000;
+                justify-content: center;
+
+                p{
+                    // background-color: #3da;
+                    // color: #0005;
+                    font: 300 1.3rem;
+                    text-align: center;
+                    padding: 1.5rem;
+                    width: 100%;
+                    margin: 0 2rem;
+                }
+            }
+        }
+
+    }
+}

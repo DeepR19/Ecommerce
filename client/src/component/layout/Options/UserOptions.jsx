@@ -32,7 +32,7 @@ export default function UserOptions({user}) {
         )
   };
   function dashboard(){
-    navigate("/dashboard")
+    navigate("/admin/dashboard")
   }
   function cart(){
     navigate("/cart")
