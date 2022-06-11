@@ -26,7 +26,14 @@ import {
     Update_Product_Request,
     Update_Product_Fail,
     Update_Product_Success,
-    Update_Product_Reset
+    Update_Product_Reset,
+    All_Review_Request,
+    All_Review_Success,
+    All_Review_Fail,
+    Delete_Review_Request,
+    Delete_Review_Success,
+    Delete_Review_Fail,
+    Delete_Review_Reset
 } from "../Constants/productConstant";
 
 // All products
@@ -90,6 +97,75 @@ export const productDetailsReducer =( state={ products: {} } , action)=>{
             return {
                 loading: false,
                 error : action.payload
+            }
+        case Clear_Err:
+            return {
+                ...state,
+                error : null
+            }
+        
+        default:
+            return state;                
+    }
+};
+
+export const productReviewReducer =( state={ products: {} } , action)=>{
+
+    switch (action.type){
+
+        case All_Review_Request:  //  this is used when req is send to server
+            return {
+                loading: true,
+                ...state
+            }
+        case All_Review_Success:       //this is working when res is come from server
+            return {
+                loading: false,
+                reviews : action.payload,
+            }
+        case All_Review_Fail:
+            return {
+                ...state,
+                loading: false,
+                error : action.payload
+            }
+        case Clear_Err:
+            return {
+                ...state,
+                error : null
+            }
+        
+        default:
+            return state;                
+    }
+};
+
+
+export const reviewReducer =( state={ products: {} } , action)=>{
+
+    switch (action.type){
+
+        case Delete_Review_Request:  //  this is used when req is send to server
+            return {
+                loading: true,
+                ...state
+            }
+        case Delete_Review_Success:       //this is working when res is come from server
+            return {
+                loading: false,
+                isDeleted : action.payload,
+            }
+        case Delete_Review_Fail:
+            return {
+                ...state,
+                loading: false,
+                error : action.payload
+            }
+
+        case Delete_Review_Reset:
+            return{
+                ...state,
+                isDeleted: false
             }
         case Clear_Err:
             return {

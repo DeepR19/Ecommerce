@@ -202,7 +202,18 @@ exports.updatePassword = AsyncErr(async (req, res, next)=>{
 
 // update user profile
 exports.updateProfile = AsyncErr(async (req, res, next)=>{
+    const newUserData = {
+        name: req.body.name,
+        email: req.body.email
+    }
 
+
+    if(req.body.avatar !== ""){
+
+    const user = await User.findById(req.user.id)
+
+    const imageId = user.avatar.public_id;
+    await cloudinary.v2.uploader.destroy(imageId);
    
     const myCloud = await cloudinary.v2.uploader.upload(
         req.body.avatar ,
@@ -213,14 +224,12 @@ exports.updateProfile = AsyncErr(async (req, res, next)=>{
         }
     )
 
-    const newUserData = {
-        name: req.body.name,
-        email: req.body.email,
-        avatar: {
+    newUserData.avatar = {
             public_id: myCloud.public_id,
             url: myCloud.secure_url
-        }
     }
+}
+
 
     const user  = await User.findByIdAndUpdate(
         req.user.id,
@@ -276,6 +285,12 @@ exports.updateUserRole = AsyncErr(async(req, res, next)=>{
         email: req.body.email,
         role: req.body.role
     };
+    
+    const user1 = await User.findById(req.params.id);
+    console.log(req.params.id, req.body, user1)
+    if(!user1){
+        return next(new ErrorHandler("User Not found", 404))
+    }
 
     const user  = await User.findByIdAndUpdate(
         req.params.id,
@@ -286,6 +301,7 @@ exports.updateUserRole = AsyncErr(async(req, res, next)=>{
             useFindAndModify: false
         }
     );
+
 
     res.status(200).json({
         success: true,
@@ -302,6 +318,9 @@ exports.DeleteUser = AsyncErr(async(req, res, next)=>{
     if(!user){
         return next(new ErrorHandler("User does not exist with this id", 401))
     }
+
+    const imageId = user.avatar.public_id;
+    await cloudinary.v2.uploader.destroy(imageId);
 
     await user.remove();  // this is used to remove user from the DB by Admin
 

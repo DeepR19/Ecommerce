@@ -226,8 +226,14 @@ exports.createProductReview = AsyncErr(async (req, res, next)=>{
     
     // here we add all the review and then divide by the lenght by the reviews
     prod.reviews.forEach(rev=>{ avg += rev.rating })
+
+    if(isReviewed.length === 0){
+        prod.rating = 0
+    }else{
+        prod.ratings = avg / (prod.reviews.length)
+
+    }
     
-    prod.ratings = avg / (prod.reviews.length)
 
 
     await prod.save({

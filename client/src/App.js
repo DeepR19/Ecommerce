@@ -37,6 +37,8 @@ import {Elements} from "@stripe/react-stripe-js";
 import {loadStripe} from "@stripe/stripe-js"
 
 import './App.css';
+import UpdateUser from './component/Admin/AllUsers/UpdateUser';
+import ProdReviews from './component/Admin/Reviews/ProdReviews';
 
 function App() {
     const [stripKey , setStripKey] = useState("");
@@ -93,6 +95,8 @@ function App() {
             <Route exact path="/admin/orders" element={ isAuthenticated === false? <Login/> : <AdminOrder/>}/>
             <Route exact path="/admin/order/:id" element={ isAuthenticated === false? <Login/> : <ProcessOrder/>}/>
             <Route exact path="/admin/users" element={ isAuthenticated === false? <Login/> : <UsersList/>}/>
+            <Route exact path="/admin/user/:id" element={ isAuthenticated === false? <Login/> : <UpdateUser/>}/>
+            <Route exact path="/admin/reviews" element={ isAuthenticated === false? <Login/> : <ProdReviews/>}/>
 
             {
               stripKey && (

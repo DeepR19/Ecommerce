@@ -8,12 +8,14 @@ import { Chart, registerables } from 'chart.js';
 import {getAllOrders} from "../../../Actions/orderAction"
 
 import "./DashBoard.scss";
+import { getAllUsers } from '../../../Actions/userAction';
 
 export default function DashBoard() {
     Chart.register(...registerables);
   const dispatch = useDispatch()
   const {products} = useSelector(state => state.products);
   const {order} = useSelector(state => state.allOrders);
+  const {users} = useSelector(state => state.allUsers);
 
     let outOfStock = 0;
 
@@ -25,12 +27,9 @@ export default function DashBoard() {
         })
 
         useEffect(()=>{
-            dispatch(
-                getAdminProduct()
-                )
-            dispatch(
-              getAllOrders()
-            )
+            dispatch( getAdminProduct() )
+            dispatch( getAllOrders() )
+            dispatch( getAllUsers() )
             },[dispatch])
 
 
@@ -86,7 +85,7 @@ export default function DashBoard() {
 
                             <Link to="/admin/users">
                                 <p>Users</p>
-                                <p>2</p>
+                                <p>{users && users.length}</p>
                             </Link>
                         </div>
                     </div>

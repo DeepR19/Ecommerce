@@ -30,4 +30,13 @@ export const Update_Product_Success = "UPDATE_PRODUCT_SUCCESS"
 export const Update_Product_Reset = "UPDATE_PRODUCT_RESET"
 export const Update_Product_Fail = "UPDATE_PRODUCT_FAIL"
 
+export const All_Review_Request  = "ALL_REVIEW_REQUEST";
+export const All_Review_Success  = "ALL_REVIEW_SUCCESS";
+export const All_Review_Fail  = "ALL_REVIEW_FAIL";
+
+export const Delete_Review_Request = "DELETE_REVIEW_REQUEST"
+export const Delete_Review_Success = "DELETE_REVIEW_SUCCESS"
+export const Delete_Review_Reset = "DELETE_REVIEW_RESET"
+export const Delete_Review_Fail = "DELETE_REVIEW_FAIL"
+
 export const Clear_Err = "CLEAR_ERRORS"; 
