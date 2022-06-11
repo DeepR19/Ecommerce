@@ -14,10 +14,25 @@ import {
     New_Review_Success,
     
     Clear_Err,
+   
+    Admin_Product_Fail,
+    Admin_Product_Request,
+    Admin_Product_Success,
+    
+    New_Product_Request,
+    New_Product_Success,
+    New_Product_Fail,
+
+    Delete_Product_Success,
+    Delete_Product_Fail,
+    Delete_Product_Request,
+    Update_Product_Request,
+    Update_Product_Success,
+    Update_Product_Fail,
 } from "../Constants/productConstant";
 
 
-export const getProduct = (keyword="", currentPage=1, price=[0, 3000] , category , rating=0 ) => async (dispatch)=>{   // this function res is came from home useEffect to take the data
+export const getProduct = (keyword="", currentPage=1, price=[0, 900000] , category , rating=0 ) => async (dispatch)=>{   // this function res is came from home useEffect to take the data
     try{
         dispatch({
             type: All_Product_Request
@@ -38,6 +53,91 @@ export const getProduct = (keyword="", currentPage=1, price=[0, 3000] , category
         console.log(err)
         dispatch({
             type: All_Product_Fail,
+            payload: err.response.data.message 
+        })
+    }
+};
+
+
+export const createProduct = (productData) => async (dispatch)=>{   // this function res is came from home useEffect to take the data
+    try{
+        dispatch({
+            type: New_Product_Request
+        });
+
+        const config = {
+            headers:{
+                "Content-Type": "application/json"
+            }
+        };
+
+        const {data} = await axios.post(
+            `/api/vi/admin/product/new`,
+            productData,
+            config
+        );
+
+        dispatch({
+            type: New_Product_Success,
+            payload: data
+        })
+    }catch(err){
+        dispatch({
+            type: New_Product_Fail,
+            payload: err.response.data.message 
+        })
+    }
+};
+
+export const updateProduct = (id, productData) => async (dispatch)=>{   // this function res is came from home useEffect to take the data
+    try{
+        dispatch({
+            type: Update_Product_Request
+        });
+
+        const config = {
+            headers:{
+                "Content-Type": "application/json"
+            }
+        };
+
+        const {data} = await axios.put(
+            `/api/vi/admin/product/${id}`,
+            productData,
+            config
+        );
+
+        dispatch({
+            type: Update_Product_Success,
+            payload: data.success
+        })
+    }catch(err){
+        dispatch({
+            type: Update_Product_Fail,
+            payload: err.response.data.message 
+        })
+    }
+};
+
+// delete product
+export const deleteProduct = (id) => async (dispatch)=>{   // this function res is came from home useEffect to take the data
+    try{
+        dispatch({
+            type: Delete_Product_Request
+        });
+
+
+        const {data} = await axios.delete(
+            `/api/vi/admin/product/${id}`
+        );
+
+        dispatch({
+            type: Delete_Product_Success,
+            payload: data.success
+        })
+    }catch(err){
+        dispatch({
+            type: Delete_Product_Fail,
             payload: err.response.data.message 
         })
     }
@@ -95,6 +195,25 @@ export const getProductDetails = (id) => async (dispatch)=>{   // this function 
     }
 };
 
+export const getAdminProduct = (id) => async (dispatch)=>{ 
+    try {
+        dispatch({
+            type: Admin_Product_Request
+        });
+
+        const {data} = await axios.get("/api/vi/admin/products");
+
+        dispatch({
+            type: Admin_Product_Success,
+            payload: data.products
+        })
+    } catch (error) {
+        dispatch({
+            type: Admin_Product_Fail,
+            payload: error.response.data.message
+        })
+    }
+}
 
 // user to clear the errors
 export const clearErr = () => async (dispatch)=>{

@@ -1,23 +1,47 @@
-import React from 'react'
-import SideBar from "./SideBar";
+import React , {useEffect} from 'react'
+import SideBar from "../SideBar";
 import {Link} from "react-router-dom";
+import {useSelector, useDispatch} from "react-redux";
+import {getAdminProduct} from "../../../Actions/productAction";
 import {Doughnut, Line} from "react-chartjs-2";
+import { Chart, registerables } from 'chart.js';
 
 import "./DashBoard.scss";
 
 export default function DashBoard() {
+    Chart.register(...registerables);
+  const dispatch = useDispatch()
+  const {products} = useSelector(state => state.products);
 
-    const lineChart = {
-        lables: ["initial Amount", "Amount Earned"],
-        datasets:[
-            {
-                label: "Total Amount",
-                backgroundColor: ["tomato"],
-                hoverBackgroundColor : ["red"],
-                data: [0,1000]
+    let outOfStock = 0;
+
+    products &&
+        products.forEach(item =>{
+            if(item.Stock === 0){
+                outOfStock += 1
             }
-        ]
-    };
+        })
+
+        useEffect(()=>{
+            dispatch(
+              getAdminProduct()
+            )
+          },[dispatch])
+
+
+    const lineState = {
+        
+            labels: ["initial Amount", "Amount Earned"],
+            datasets:[
+                {
+                    label: "Total Amount",
+                    backgroundColor: ["tomato"],
+                    hoverBackgroundColor : ["red"],
+                    data: [0,1000]
+                }
+            ]
+        };
+
 
     const daoghnutState = {
         labels: ["OutOfStock", "InStock"],
@@ -25,7 +49,7 @@ export default function DashBoard() {
             {
                 backgroundColor: ["#00A684", "#680084"],
                 hoverBackgroundColor: ["#485000", "#35014f"],
-                data: [2,10]   
+                data: [outOfStock , products && (products.length - outOfStock)]   
             }
         ]
     }
@@ -45,9 +69,9 @@ export default function DashBoard() {
                         </div>
 
                         <div className="dashboardSummaryBox2">
-                            <Link to="/admin/paroducts">
+                            <Link to="/admin/products">
                                 <p>Product</p>
-                                <p>50</p>
+                                <p>{products && products.length}</p>
                             </Link>
 
                             <Link to="/admin/orders">
@@ -64,7 +88,7 @@ export default function DashBoard() {
 
 
                     <div className="lineChart">
-                        <Line data={lineChart}/>
+                        <Line data={lineState} />
                     </div>
                     
                     

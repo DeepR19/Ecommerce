@@ -20,7 +20,10 @@ import OrderSuccess from './component/Shipping/OrderSuccess';
 import MyOrder from "./component/Shipping/MyOrder";
 import OrderDetails from './component/OrderDetails/OrderDetails';
 
-import Dashboard from './component/Admin/DashBoard';
+import Dashboard from './component/Admin/DashBoard/DashBoard';
+import AdminProducts from './component/Admin/AllProducts/AdminProducts';
+import NewProduct from './component/Admin/NewProd/NewProduct';
+import UpdateProduct from "./component/Admin/Update/UpdateProduct"
 
 import store from "./store";
 import { useEffect, useState } from 'react';
@@ -33,17 +36,13 @@ import {loadStripe} from "@stripe/stripe-js"
 import './App.css';
 
 function App() {
-    const [role, setRole] = useState("")  ;
     const [stripKey , setStripKey] = useState("");
-    const {loading, isAuthenticated, user} = useSelector(state => state.user);
+    const {isAuthenticated, user} = useSelector(state => state.user);
 
     async function getStripKey(){
       const {data} = await axios.get("/api/vi/stripApiKey");
 
       setStripKey(data.stripApiKey);
-    }
-    if(!loading && user){
-      setRole(user.user.role)
     }
     useEffect(()=>{
       store.dispatch(loadUser ());  // call dispatch without using useDispatch
@@ -51,7 +50,8 @@ function App() {
       // call server to send stripe api key
       getStripKey()
     } ,[]);
-    console.log(user)
+     
+      
     
   return (
     <div className="App">
@@ -82,7 +82,10 @@ function App() {
             <Route exact path="/success" element={ isAuthenticated === false? <Login/> : <OrderSuccess/>}/>
             <Route exact path="/orders" element={ isAuthenticated === false? <Login/> : <MyOrder/>}/>
             <Route exact path="/order/:id" element={ isAuthenticated === false? <Login/> : <OrderDetails/>}/>
-            <Route exact path="/admin/dashboard" element={ isAuthenticated === false ? <Login/> : ( !loading && role !== "admin"? <Account user={user}/>: <Dashboard/>)}/>
+            <Route exact path="/admin/dashboard" element={ isAuthenticated === false? <Login/> : <Dashboard/>}/>
+            <Route exact path="/admin/products" element={ isAuthenticated === false? <Login/> : <AdminProducts/>}/>
+            <Route exact path="/admin/product/" element={ isAuthenticated === false? <Login/> : <NewProduct/>}/>
+            <Route exact path="/admin/product/:id" element={ isAuthenticated === false? <Login/> : <UpdateProduct/>}/>
 
             {
               stripKey && (

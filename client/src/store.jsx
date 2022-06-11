@@ -6,13 +6,13 @@ import {
 
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
-import { newReviewReducer, productDetailsReducer, productReducer } from "./Reducers/productReducer";
+import { newProductReducer, newReviewReducer,productsReducer, productDetailsReducer, productReducer } from "./Reducers/productReducer";
 import { userReducer , profileReducer, forgotPasswordReducer} from "./Reducers/userReducer";
 import { cartReducer } from "./Reducers/cartReducer";
 import { myOrderReducer, newOrderReducer, orderDetailsReducer } from "./Reducers/orderReducer";
 
 const reducer = combineReducers({
-    products: productReducer,
+    products: productsReducer,
     productDetails: productDetailsReducer,
     user: userReducer,
     profile: profileReducer,
@@ -21,7 +21,9 @@ const reducer = combineReducers({
     newOrder: newOrderReducer,
     myOrders: myOrderReducer,
     orderDetails: orderDetailsReducer,
-    newReview: newReviewReducer
+    newReview: newReviewReducer,
+    newProduct: newProductReducer,
+    product: productReducer
 });
 
 let initialState = {

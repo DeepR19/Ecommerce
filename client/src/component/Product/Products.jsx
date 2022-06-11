@@ -27,7 +27,7 @@ const categories =[
 export default function Products({match}) {
 
     const [currentPage, setCurrentPage] = useState(1)
-    const [price , setPrice] = useState([0, 30000])
+    const [price , setPrice] = useState([0, 900000])
     const [category, setCategory] = useState("")
     const [rating, setRating] = useState(0)
 

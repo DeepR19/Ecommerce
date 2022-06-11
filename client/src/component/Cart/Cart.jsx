@@ -40,7 +40,6 @@ export default function Cart() {
        navigate("/login?redirect=shipping")
    }
 
-
   return (
     <>
     {cartItems.length === 0 ? "No Item Present" :
