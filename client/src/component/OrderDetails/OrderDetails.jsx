@@ -19,7 +19,7 @@ export default function OrderDetails() {
   return (
     <>
         {
-            loading? <Loading/>:(
+            loading? <Loading/>: order ?(
                 <>
                     <Additional title={`Order |`}/>
 
@@ -113,7 +113,7 @@ export default function OrderDetails() {
                         </div>
                     </div>
                 </>
-            )
+            ): ""
         }
     </>
   )

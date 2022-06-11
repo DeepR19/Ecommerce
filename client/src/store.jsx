@@ -9,7 +9,7 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import { newProductReducer, newReviewReducer,productsReducer, productDetailsReducer, productReducer } from "./Reducers/productReducer";
 import { userReducer , profileReducer, forgotPasswordReducer} from "./Reducers/userReducer";
 import { cartReducer } from "./Reducers/cartReducer";
-import { myOrderReducer, newOrderReducer, orderDetailsReducer } from "./Reducers/orderReducer";
+import { allOrderReducer, myOrderReducer, newOrderReducer, orderDetailsReducer, OrderReducer } from "./Reducers/orderReducer";
 
 const reducer = combineReducers({
     products: productsReducer,
@@ -23,7 +23,9 @@ const reducer = combineReducers({
     orderDetails: orderDetailsReducer,
     newReview: newReviewReducer,
     newProduct: newProductReducer,
-    product: productReducer
+    product: productReducer,
+    allOrders: allOrderReducer,
+    order: OrderReducer
 });
 
 let initialState = {

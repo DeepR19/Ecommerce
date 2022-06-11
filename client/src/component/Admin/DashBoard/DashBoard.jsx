@@ -5,6 +5,7 @@ import {useSelector, useDispatch} from "react-redux";
 import {getAdminProduct} from "../../../Actions/productAction";
 import {Doughnut, Line} from "react-chartjs-2";
 import { Chart, registerables } from 'chart.js';
+import {getAllOrders} from "../../../Actions/orderAction"
 
 import "./DashBoard.scss";
 
@@ -12,6 +13,7 @@ export default function DashBoard() {
     Chart.register(...registerables);
   const dispatch = useDispatch()
   const {products} = useSelector(state => state.products);
+  const {order} = useSelector(state => state.allOrders);
 
     let outOfStock = 0;
 
@@ -24,9 +26,12 @@ export default function DashBoard() {
 
         useEffect(()=>{
             dispatch(
-              getAdminProduct()
+                getAdminProduct()
+                )
+            dispatch(
+              getAllOrders()
             )
-          },[dispatch])
+            },[dispatch])
 
 
     const lineState = {
@@ -76,7 +81,7 @@ export default function DashBoard() {
 
                             <Link to="/admin/orders">
                                 <p>Orders</p>
-                                <p>4</p>
+                                <p>{order && order.length}</p>
                             </Link>
 
                             <Link to="/admin/users">

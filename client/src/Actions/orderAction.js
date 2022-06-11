@@ -9,7 +9,16 @@ import {
     Clear_Err,
     Order_Details_Request,
     Order_Details_Success,
-    Order_Details_Fail
+    Order_Details_Fail,
+    All_Order_Request,
+    All_Order_Success,
+    All_Order_Fail,
+    Update_Order_Request,
+    Update_Order_Success,
+    Update_Order_Fail,
+    Delete_Order_Request,
+    Delete_Order_Success,
+    Delete_Order_Fail
 } from "../Constants/orderConstant";
 
 // create new orders
@@ -43,6 +52,62 @@ export const createOrder = (order) => async (dispatch)=>{
 };
 
 
+// update Order -- Admin
+
+export const updateOrder = (id, order) => async (dispatch)=>{
+    try{
+        dispatch({
+            type: Update_Order_Request
+        });
+
+        const config = {
+            headers: {
+                "Content-Type": "application/json"
+            }
+        };
+
+        const {data}  = await axios.put(
+            `/api/vi/admin/order/${id}`,
+            order,
+            config
+        );
+        dispatch({
+            type: Update_Order_Success,
+            payload: data.success
+        })
+    }catch(error){
+        dispatch({
+            type: Update_Order_Fail,
+            payload : error.response.data.message
+        })
+    }
+};
+
+
+// delete Order -- Admin
+export const deleteOrder = (id, order) => async (dispatch)=>{
+    try{
+        dispatch({
+            type: Delete_Order_Request
+        });
+
+
+        const {data}  = await axios.delete(
+            `/api/vi/admin/order/${id}`,
+        );
+        dispatch({
+            type: Delete_Order_Success,
+            payload: data.success
+        })
+    }catch(error){
+        dispatch({
+            type: Delete_Order_Fail ,
+            payload : error.response.data.message
+        })
+    }
+};
+
+
 // see my orders
 export const MyOrders = () => async (dispatch)=>{
     try{
@@ -61,6 +126,31 @@ export const MyOrders = () => async (dispatch)=>{
     }catch(error){
         dispatch({
             type: My_Order_Fail,
+            payload : error.response.data.message
+        })
+    }
+};
+
+
+
+// see my orders
+export const getAllOrders = () => async (dispatch)=>{
+    try{
+        dispatch({
+            type: All_Order_Request
+        });
+
+
+        const {data}  = await axios.get(
+            "/api/vi/admin/orders",
+        );
+        dispatch({
+            type: All_Order_Success,
+            payload: data.orders
+        })
+    }catch(error){
+        dispatch({
+            type: All_Order_Fail,
             payload : error.response.data.message
         })
     }

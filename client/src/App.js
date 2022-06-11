@@ -24,6 +24,9 @@ import Dashboard from './component/Admin/DashBoard/DashBoard';
 import AdminProducts from './component/Admin/AllProducts/AdminProducts';
 import NewProduct from './component/Admin/NewProd/NewProduct';
 import UpdateProduct from "./component/Admin/Update/UpdateProduct"
+import AdminOrder from './component/Admin/Orders/AdminOrder';
+import ProcessOrder from './component/Admin/Orders/ProcessOrder';
+import UsersList from './component/Admin/AllUsers/UsersList';
 
 import store from "./store";
 import { useEffect, useState } from 'react';
@@ -82,10 +85,14 @@ function App() {
             <Route exact path="/success" element={ isAuthenticated === false? <Login/> : <OrderSuccess/>}/>
             <Route exact path="/orders" element={ isAuthenticated === false? <Login/> : <MyOrder/>}/>
             <Route exact path="/order/:id" element={ isAuthenticated === false? <Login/> : <OrderDetails/>}/>
+            
             <Route exact path="/admin/dashboard" element={ isAuthenticated === false? <Login/> : <Dashboard/>}/>
             <Route exact path="/admin/products" element={ isAuthenticated === false? <Login/> : <AdminProducts/>}/>
             <Route exact path="/admin/product/" element={ isAuthenticated === false? <Login/> : <NewProduct/>}/>
             <Route exact path="/admin/product/:id" element={ isAuthenticated === false? <Login/> : <UpdateProduct/>}/>
+            <Route exact path="/admin/orders" element={ isAuthenticated === false? <Login/> : <AdminOrder/>}/>
+            <Route exact path="/admin/order/:id" element={ isAuthenticated === false? <Login/> : <ProcessOrder/>}/>
+            <Route exact path="/admin/users" element={ isAuthenticated === false? <Login/> : <UsersList/>}/>
 
             {
               stripKey && (

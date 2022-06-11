@@ -13,23 +13,23 @@ export default function Cart() {
     const {cartItems} = useSelector(state=> state.cart);
 
    const increasePrice =(id, quantity, stock)=>{
-        const newQuantity = quantity +1;
-        if(stock <= quantity){
-            return
-        }
-        dispatch(
-            addItemToCart(id, newQuantity)
-        )
+        // const newQuantity = quantity +1;
+        // if(stock <= quantity){
+        //     return
+        // }
+        // dispatch(
+        //     addItemToCart(id, newQuantity)
+        // )
    };
 
    const decreasePrice =(id, quantity)=>{
-        const newQuantity = quantity -1;
-        if(1 >= quantity){
-            return
-        }
-        dispatch(
-            addItemToCart(id, newQuantity)
-        )
+        // const newQuantity = quantity -1;
+        // if(1 >= quantity){
+        //     return
+        // }
+        // dispatch(
+        //     addItemToCart(id, newQuantity)
+        // )
    };
 
    const removeCartItem =(id)=>{
