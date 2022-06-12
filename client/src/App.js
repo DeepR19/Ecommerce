@@ -28,6 +28,8 @@ import AdminOrder from './component/Admin/Orders/AdminOrder';
 import ProcessOrder from './component/Admin/Orders/ProcessOrder';
 import UsersList from './component/Admin/AllUsers/UsersList';
 
+import Header from "./component/layout/Header/Header"
+
 import store from "./store";
 import { useEffect, useState } from 'react';
 import { loadUser} from './Actions/userAction';
@@ -39,6 +41,8 @@ import {loadStripe} from "@stripe/stripe-js"
 import './App.css';
 import UpdateUser from './component/Admin/AllUsers/UpdateUser';
 import ProdReviews from './component/Admin/Reviews/ProdReviews';
+import Contact from './component/Contact/Contact';
+import About from './component/About/About';
 
 function App() {
     const [stripKey , setStripKey] = useState("");
@@ -59,9 +63,11 @@ function App() {
       
     
   return (
+    
     <div className="App">
 
         <Router>
+        <Header/>
 
             {isAuthenticated && <UserOptions user={user}/> }
             <Elements stripe={loadStripe(stripKey)}>
@@ -77,6 +83,8 @@ function App() {
             <Route exact path="/password/forgot" element={<ForgotPassword user={user}/>}/>
             <Route exact path="/reset/:token" element={<ResetPassword/>}/>
             <Route exact path="/cart" element={<Cart/>}/>
+            <Route exact path="/about" element={<About/>}/>
+            <Route exact path="/contact" element={<Contact/>}/>
 
 
             <Route exact path="/me/update" element={ isAuthenticated === false? <Login/> : <UpdateProfile user={user}/>}/>

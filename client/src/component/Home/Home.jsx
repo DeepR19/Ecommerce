@@ -38,8 +38,6 @@ export default function Home() {
           {/* additional is used to add meta data about page */}
             <Additional title="DeepR19 | Ecommerce"/>
 
-            <Header/>
-
             <div className="homeContainer">
               <p>Welcome to Ecommerce</p>
 

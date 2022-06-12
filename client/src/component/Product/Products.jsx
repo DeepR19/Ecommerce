@@ -9,6 +9,7 @@ import Pagination from "react-js-pagination";
 import Slider from "@material-ui/core/Slider"
 import Typography from "@material-ui/core/Typography"
 import Additional from "../layout/Additional"
+import "./Product.scss"
 
 
 
@@ -59,6 +60,7 @@ export default function Products({match}) {
         {
             loading ? <Loader/> : 
             <>
+            
             <Additional title={`DeepR19 | Products`}/>
 
                 <div className="productsHeading">Products</div>

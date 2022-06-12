@@ -10,6 +10,7 @@ import {
   useStripe,
   useElements
 } from "@stripe/react-stripe-js";
+import "./payment.scss"
 
 import CreditCardIcon from "@material-ui/icons/CreditCard";
 import EventIcon from "@material-ui/icons/Event";

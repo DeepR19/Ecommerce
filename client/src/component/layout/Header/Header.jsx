@@ -1,10 +1,78 @@
-import React from 'react'
+import React from 'react';
+import {Link} from "react-router-dom";
+import SearchIcon from "@material-ui/icons/Search"
+import {useDispatch, useSelector} from "react-redux";
+import AcIcon from "@material-ui/icons/AccountCircle"
+import ShopIcon from "@material-ui/icons/ShoppingCart"
+import Logout from "@material-ui/icons/ArrowBackOutlined"
 import "./Header.scss";
+import { useEffect } from 'react';
+import { loadUser } from '../../../Actions/userAction';
+import Img from "../../../assets/logo.PNG"
 
 export default function Header() {
+
+  const {isAuthenticated} = useSelector(state => state.user);
+  const dispatch = useDispatch()
+
+  // based on login header will change
+  const data = ()=>{
+    if(isAuthenticated){
+      return(
+        <>
+          <Link to="/logout" title='logout'>
+              <Logout/>
+          </Link>
+        </>
+      )
+    }else{
+      return(
+        <>
+          <Link to="/login" title='login'>
+              <AcIcon/>
+          </Link>
+        </>
+      )
+    }
+  };
+
+  useEffect(()=>{
+    dispatch(loadUser())
+  }, [dispatch])
+  
+
   return (
-    <div className='header'>
-        Header
+    <div className='headerContainer'>
+        <div className="headerImg">
+          <img src={Img} alt="" />
+        </div>
+
+        <div className="headerLinks">
+          <ul>
+            <Link to="/" title='home'>
+                <li>Home</li>
+            </Link>
+            <Link to="/products" title='products'>
+                <li>Products</li>
+            </Link>
+            <Link to="/about" title='about'>
+                <li>About</li>
+            </Link>
+            <Link to="/contact" title='contact'>
+                <li>Contact</li>
+            </Link>
+          </ul>
+        </div>
+
+        <div className="headerSideLinks">
+          <Link to="/search">
+              <SearchIcon/>
+          </Link>
+          <Link to="/cart">
+              <ShopIcon/>
+          </Link>
+          {data()}
+        </div>
     </div>
   )
 }

@@ -4,7 +4,7 @@ import "./Cart.scss";
 import {useSelector, useDispatch} from "react-redux";
 import {addItemToCart, RemoveFromCart} from "../../Actions/cartAction";
 import { useNavigate } from 'react-router-dom';
-
+import "./Cart.scss"
 
 export default function Cart() {
     // const [data, setData]

@@ -2,7 +2,7 @@ import React from 'react';
 import CheckOutStep from "./CheckOutStep";
 import {useSelector} from "react-redux";
 import {Link, useNavigate} from "react-router-dom";
-
+import "./ConfirmOrder.scss"
 
 export default function OrderConfirm() {
     const navigate = useNavigate();
@@ -29,7 +29,7 @@ export default function OrderConfirm() {
     const totalPrice = subtotal + tax + shippingCharges;
 
     
-    const handleProceed = ()=>{
+    const proceedToPayment = ()=>{
         const data = {
             subtotal,
             shippingCharges,
@@ -44,77 +44,76 @@ export default function OrderConfirm() {
 
   return (
     <>
-        <CheckOutStep activeSteps={1}/>
+        <CheckOutStep className="checkOut" activeSteps={1}/>
 
-        <div className="confirmOrders">
-            <div>
-                <h3>Shipping Info</h3>
-
-                <div className="shoppingAreaBox">
-                    <div>
-                        <p>Name: </p>
-                        <span>{user.user.name}</span>
-                    </div>
-                    <div>
-                        <p>Phone: </p>
-                        <span>{shippingInfo.phoneNo}</span>
-                    </div>
-                    <div>
-                        <p>Address: </p>
-                        <span>{address}</span>
-                    </div>
-                </div>
+        <div className="confirmOrderPage">
+        <div>
+          <div className="confirmshippingArea">
+            <h3>Shipping Info</h3>
+            <div className="confirmshippingAreaBox">
+              <div>
+                <p>Name:</p>
+                <span>{user.name}</span>
+              </div>
+              <div>
+                <p>Phone:</p>
+                <span>{shippingInfo.phoneNo}</span>
+              </div>
+              <div>
+                <p>Address:</p>
+                <span>{address}</span>
+              </div>
             </div>
-            
-            <div className="confirmCartItem">
-                <h3>Your Cart Item</h3>
-
-                <div className="confirmCartItemContainer">
-                    {
-                        cartItems && cartItems.map(item => (
-                            <div key={item.product}>
-                                <img src={item.image} alt={item.product} />
-
-                                <Link to={`/product/${item.product}`}>{item.name}</Link>
-
-                                <span>
-                                    {item.quantity} X {item.price} = 
-                                    <b>Rs. {item.quantity * item.price}</b>
-                                </span>
-                            </div>
-                        ))
-                    }
-                </div>
+          </div>
+          <div className="confirmCartItems">
+            <h3>Your Cart Items:</h3>
+            <div className="confirmCartItemsContainer">
+              {cartItems &&
+                cartItems.map((item) => (
+                  <div key={item.product}>
+                    <img src={item.image} alt="Product" />
+                    <Link to={`/product/${item.product}`}>
+                      {item.name}
+                    </Link>{" "}
+                    <span>
+                      {item.quantity} X ₹{item.price} ={" "}
+                      <b>₹{item.price * item.quantity}</b>
+                    </span>
+                  </div>
+                ))}
             </div>
-                {/*  */}
-            <div>
-                <div className="orderSummary">
-                    <h3>Order Summary</h3>
-
-                    <div>
-                        <p>SubTotal: </p>
-                        <span>Rs. {subtotal}</span>
-                    </div>
-                    <div>
-                        <p>Shipping Charges: </p>
-                        <span>Rs. {shippingCharges}</span>
-                    </div>
-                    <div>
-                        <p>GST: </p>
-                        <span>Rs. {tax}</span>
-                    </div>
-                </div>
-
-                <div className="ordersSummaryTotal">
-                    <p>
-                        <b>Total :</b>
-                    </p>
-                    <span>Rs. {totalPrice}</span>
-                </div>
-
-                <button onClick={handleProceed}> Proceed To Payment </button>
-            </div>
+          </div>
         </div>
+        {/*  */}
+        <div>
+          <div className="orderSummary">
+            <h3>Order Summery</h3>
+            <div>
+              <div>
+                <p>Subtotal:</p>
+                <span>₹{subtotal}</span>
+              </div>
+              <div>
+                <p>Shipping Charges:</p>
+                <span>₹{shippingCharges}</span>
+              </div>
+              <div>
+                <p>GST:</p>
+                <span>₹{tax}</span>
+              </div>
+            </div>
+
+            <div className="orderSummaryTotal">
+              <p>
+                <b>Total:</b>
+              </p>
+              <span>₹{totalPrice}</span>
+            </div>
+
+            <button onClick={proceedToPayment}>Proceed To Payment</button>
+          </div>
+        </div>
+      </div>
     </>
   )
 }

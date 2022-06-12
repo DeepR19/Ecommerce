@@ -1,6 +1,9 @@
 import React ,{useState}from 'react'
 import {useNavigate} from "react-router-dom";
 import Additional from '../layout/Additional';
+import { Link } from 'react-router-dom';
+
+import "./Search.scss";
 
 export default function Search() {
     const [keyword, setKeyword] = useState("");
@@ -19,12 +22,14 @@ export default function Search() {
         <>
             <Additional title="Search a product"/>
 
+            
+            <Link to="/products" className='GBN'>Go Back</Link>
             <form className="searchBox" onSubmit={searchHandler}>
                 <input type="text"
                 placeholder='Search a Product...'
                 onChange={(e) => setKeyword(e.target.value)} />
 
-                <button type="submit">Submit</button>
+                <button type="submit" className='Syb'>Submit</button>
             </form>
         </>
     )

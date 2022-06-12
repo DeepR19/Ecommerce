@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+
 import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import { logout } from '../../../Actions/userAction';
+import Backdrop from "@material-ui/core/Backdrop";
 
 import {SpeedDial, SpeedDialAction} from "@material-ui/lab";
 import DashBoardIcon from "@material-ui/icons/Dashboard"
@@ -11,6 +13,7 @@ import ListAltIcon from "@material-ui/icons/ListAlt";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 
 import Img from "../../../assets/gm.png";
+import "./Options.scss"
 
 export default function UserOptions({user}) {
   const navigate = useNavigate();
@@ -51,13 +54,16 @@ export default function UserOptions({user}) {
   return (
     <>
       {/* Backdrop from material-ui/core options={open=open; style=z-index}*/}
-      <SpeedDial
+      <Backdrop open={openLink} style={{ zIndex: "10" }} />
 
-        ariaLabel='SpeedDial tooltip eaxample'
-        onClose={()=>setOpenLink(false)}
-        onOpen={()=>setOpenLink(true)}
+      <SpeedDial
+        ariaLabel="SpeedDial tooltip example"
+        onClose={() => setOpenLink(false)}
+        onOpen={() => setOpenLink(true)}
+        style={{ zIndex: "11" }}
         open={openLink}
-      direction='down'
+        direction="down"
+        className="speedDial"
         icon={
           <img
             className='speedDialIcon'

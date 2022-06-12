@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import ReactStars from "react-rating-stars-component";
-
+import "./card.scss"
 
 export default function ProductCard({product}) {
   const options = {
@@ -24,7 +24,7 @@ export default function ProductCard({product}) {
             <span>({product.numOfReviews} reviews)</span>
         </div>
 
-        <span>Rs {product.price}</span>
+        <span><b> Rs. {product.price}</b></span>
     </Link>
   )
 }
