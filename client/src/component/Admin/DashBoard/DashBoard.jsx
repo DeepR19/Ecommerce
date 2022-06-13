@@ -66,7 +66,7 @@ export default function DashBoard() {
                     <h1>DashBoard</h1>
 
                     <div className="dashboardSummry">
-                        <div>
+                        <div className='DS1'>
                             <p>
                                 Total Amount <br /> Rs.2000
                             </p>

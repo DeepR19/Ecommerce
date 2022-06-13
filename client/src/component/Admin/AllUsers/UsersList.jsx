@@ -55,6 +55,7 @@ useEffect(()=>{
       field: "id",
       headerName: "UserID",
       minWidth: 250,
+      type: "number",
       flex: .7
     },
     {
@@ -105,6 +106,7 @@ useEffect(()=>{
 
   const rows = [];
 
+
   users && 
     users.forEach(item=>(
       rows.push({
@@ -131,7 +133,7 @@ useEffect(()=>{
               columns={columns}
               pageSize={10}
               disableSelectionOnClick
-              className='productListTable'
+              className='productListTable1'
               autoHeight
             ></DataGrid>
           </div>

@@ -1,11 +1,13 @@
 .productListContainer {
-    width: 100%;
+    width: 90%;
+
     box-sizing: border-box;
-    background-color: rgb(255, 255, 255);
+    // background-color: rgb(255, 255, 255);
     border-left: 1px solid rgba(0, 0, 0, 0.158);
     display: flex;
     flex-direction: column;
     height: 100vh;
+    font-size: 1.1rem;
   }
   
   #productListHeading {
@@ -19,26 +21,41 @@
   }
   
   .productListTable {
-    background-color: white;
+    // background-color: white;
     border: none !important;
   }
-  
+  .MuiDataGrid-cell{
+    color: #000;
+  }
+  .MuiDataGrid-columnsContainer{
+    background-color: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   .productListTable div {
-    font: 300 1vmax "Roboto";
-    color: rgba(0, 0, 0, 0.678);
+    // font: 300 1vmax "Roboto";
+    // color: rgba(0, 0, 0, 0.678);
+  
     border: none !important;
   }
   
+  .productListTable a{
+    margin-top: .8vmax;
+  }
   .productListTable a,
   .productListTable button {
     color: rgba(0, 0, 0, 0.527);
     transition: all 0.5s;
   }
-  
-  .productListTable a:hover {
-    color: tomato;
+  .MuiDataGrid-row {
+    background-color: #fff3;
+    // margin: .5vmax 0;
   }
   
+  .productListTable a:hover{
+    color: #1577f7;
+  }
   .productListTable button:hover {
     color: rgb(236, 30, 30);
   }

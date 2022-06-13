@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-import "./cartItem.scss"
+import "./Cart.scss"
 
 export default function CartItem({item , removeCartItem}) {
   return (

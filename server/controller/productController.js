@@ -199,14 +199,15 @@ exports.createProductReview = AsyncErr(async (req, res, next)=>{
 
 
     const prod = await Product.findById(prodId);
-
-
+    
     // req.user came from middleware
     // rev.user is the reciews field value  
     const isReviewed = prod.reviews.find(
         rev => rev.user.toString() === req.user._id.toString()
-    )
+        )
 
+        
+        console.log(prod.review.user)
     if(isReviewed){
         // already exist user's review
         prod.reviews.forEach(rev => {

@@ -1,4 +1,12 @@
-.hearerP
-{
-    color: var(--main);
+footer{
+    height: 10vmax;
+    width: 100vw;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: #0007;
+    border-top: 2px solid #0002;
+    margin-top: 5vmax;
 }

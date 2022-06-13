@@ -37,17 +37,16 @@ export default function UpdateUser() {
     if(!user || user._id !== id){
         dispatch(getUserDetails(id))
     }else{
-        if(user){
+        // if(user){
 
             setData({
                 name: user.name,
                 email: user.email,
                 role: user.role
             })
-        }
+        // }
         setSelect(0)
     }
-    console.log(user)
        
 
     if(error){
@@ -62,7 +61,7 @@ export default function UpdateUser() {
         navigate("/admin/users")
         dispatch({type: Update_Users_Reset})
     }
-        // dispatch(getUserDetails(id))
+    dispatch(getUserDetails(id))
 
  
 }, [dispatch, navigate, error, isUpdated,id,select, updateErr, user])

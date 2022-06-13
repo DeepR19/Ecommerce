@@ -12,6 +12,9 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import {deleteProduct } from "../../../Actions/productAction";
 import {Delete_Product_Reset, Delete_Review_Reset} from "../../../Constants/productConstant"
 
+import "./review.scss"
+
+
 export default function ProdReviews() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -53,6 +56,7 @@ const [id ,setId] = useState("");
       field: "id",
       headerName: "ReviewID",
       minWidth: 200,
+      type: "number",
       flex: .5
     },
     {
@@ -90,7 +94,7 @@ const [id ,setId] = useState("");
         return (
           <>
 
-              <Button onClick={()=>delelteReviewHandler(params.getValue(params.id, "id"))}>
+              <Button className="BTR" onClick={()=>delelteReviewHandler(params.getValue(params.id, "id"))}>
                 <DeleteIcon/>
               </Button>
           </>
@@ -152,19 +156,7 @@ const [id ,setId] = useState("");
             </form>
 
 
-            {/* {reviews && reviews.length >0 ?(
-            <DataGrid
-              rows={rows}
-              columns={columns}
-              pageSize={10}
-              disableSelectionOnClick
-              className='productListTable'
-              autoHeight
-            ></DataGrid>):(
-
-                <h1>No Reviews<h1/>
-                )
-            } */}
+          
 
             {
                 reviews && reviews.length > 0 ?
@@ -173,7 +165,7 @@ const [id ,setId] = useState("");
               columns={columns}
               pageSize={10}
               disableSelectionOnClick
-              className='productListTable'
+              className='productListTable broTable'
               autoHeight
             ></DataGrid>:
             "No Reviews"

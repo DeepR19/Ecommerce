@@ -12,6 +12,8 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import {deleteProduct } from "../../../Actions/productAction";
 import {Delete_Product_Reset} from "../../../Constants/productConstant"
 
+import "./List.scss";
+
 export default function AdminProducts() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -57,8 +59,8 @@ export default function AdminProducts() {
     {
       field: "name",
       headerName: "Name",
-      minWidth: 350,
-      flex: 1
+      minWidth: 250,
+      flex: .7
     },
     {
       field: "stock",

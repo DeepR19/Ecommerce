@@ -1,11 +1,16 @@
 .newProductContainer {
     width: 100%;
     box-sizing: border-box;
-    background-color: rgb(221, 221, 221);
+    // background-color: rgb(221, 221, 221);
     border-left: 1px solid rgba(0, 0, 0, 0.158);
     display: flex;
     flex-direction: column;
     height: 100vh;
+    // margin-top: -3vmax;
+
+  }
+  .dash1{
+    height: 120vmin;
   }
   .newProductContainer h1 {
     color: rgba(0, 0, 0, 0.733);
@@ -80,8 +85,10 @@
   }
   
   #createProductFormImage > img {
-    width: 3vmax;
-    margin: 0 0.5vmax;
+    width: 6vmax;
+    height: 5vmax;
+    border: 1px solid #0002;
+    border-radius: 5px;
   }
   #createProductBtn {
     border: none;

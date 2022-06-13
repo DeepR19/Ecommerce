@@ -29,6 +29,7 @@ import ProcessOrder from './component/Admin/Orders/ProcessOrder';
 import UsersList from './component/Admin/AllUsers/UsersList';
 
 import Header from "./component/layout/Header/Header"
+import Footer from "./component/layout/Footer/Footer"
 
 import store from "./store";
 import { useEffect, useState } from 'react';
@@ -118,6 +119,8 @@ function App() {
           </Routes>
           </Elements>
 
+
+          <Footer/>
         </Router>
 
     </div>

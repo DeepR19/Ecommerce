@@ -94,7 +94,7 @@ const createProdImagesChange = (e) =>{
 
   return (
     <>
-        <div className="dashboard">
+        <div className="dashboard  dash1">
           <SideBar/>
 
           <div className="newProductContainer">

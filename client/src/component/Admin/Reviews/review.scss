@@ -45,6 +45,14 @@
     font-size: 1.6vmax;
     color: rgba(0, 0, 0, 0.623);
   }
+ 
+  .MuiButton-label{
+    color: #1fdbfc;
+  }
+  .MuiButton-label:hover{
+    color: red;
+  }
+  
   
   @media screen and (max-width: 600px) {
     .productReviewsContainer {

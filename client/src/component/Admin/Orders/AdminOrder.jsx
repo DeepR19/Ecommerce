@@ -124,7 +124,7 @@ export default function AdminOrder() {
     <>
         <Additional title='All Orders | Admin'/>
 
-        <div className="dashboard">
+        <div className="dashboard  dash1">
           <SideBar/>
 
           <div className="productListContainer">

@@ -43,7 +43,7 @@ export default function Home() {
 
               <h1>Find Amazing products Below</h1>
 
-              <a href="...">
+              <a href="#container">
                 <button>
                   Scroll
                 </button>
@@ -53,6 +53,7 @@ export default function Home() {
 
             <div className="homeHeading">
               Featured Products
+              <div></div>
             </div>
 
             <div className="container" id="container">

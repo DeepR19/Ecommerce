@@ -10,6 +10,7 @@ import DashBoardIcon from '@material-ui/icons/Dashboard';
 import PeopleIcon from "@material-ui/icons/People";
 import RateReviewIcon from "@material-ui/icons/RateReview";
 
+import "./sideBar.scss"
 
 export default function SideBar() {
   return (
@@ -23,23 +24,22 @@ export default function SideBar() {
                 </p>
             </Link>
 
-            {/* <Link> */}
-                <TreeView
-                    defaultCollapseIcon={<ExpandMoreIcon/>}
-                    defaultExpandIcon={<ImportExportIcon/>}
-                >
-                    <TreeItem nodeId='1' label="Products">
-                        <Link to="/admin/products">
-                            <TreeItem nodeId='2' label="All" icon={<PostAddIcon/>}></TreeItem>
-                        </Link>
+            <TreeView
+            className="trwe"
+                defaultCollapseIcon={<ExpandMoreIcon/>}
+                defaultExpandIcon={<ImportExportIcon/>}
+            >
+                <TreeItem nodeId='1' label="Products">
+                    <Link to="/admin/products">
+                        <TreeItem nodeId='2' label="All" icon={<PostAddIcon/>}></TreeItem>
+                    </Link>
+                    
+                    <Link to="/admin/product">
+                        <TreeItem nodeId='3' label="Create" icon={<AddIcon/>}></TreeItem>
+                    </Link>
+                </TreeItem>
                         
-                        <Link to="/admin/product">
-                            <TreeItem nodeId='3' label="Create" icon={<AddIcon/>}></TreeItem>
-                        </Link>
-                    </TreeItem>
-                            
-                </TreeView>
-            {/* </Link> */}
+            </TreeView>
 
 
             <Link to="/admin/orders">

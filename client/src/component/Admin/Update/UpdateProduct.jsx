@@ -14,6 +14,8 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import {  useNavigate, useParams } from 'react-router-dom';
 
+import "../NewProd/New.scss"
+
 export default function UpdateProduct() {
   const navigate = useNavigate()
   const {id} = useParams()
@@ -122,7 +124,7 @@ const createProdImagesChange = (e) =>{
 
   return (
     <>
-        <div className="dashboard">
+        <div className="dashboard dash1">
           <SideBar/>
 
           <div className="newProductContainer">
@@ -207,7 +209,7 @@ const createProdImagesChange = (e) =>{
                 id="createProductBtn"
                 type= "submit"
                 disabled= {loading ?true: false}
-              >Create</Button>
+              >Update</Button>
 
             </form>
           </div>

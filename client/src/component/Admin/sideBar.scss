@@ -1,42 +1,21 @@
-.sidebar {
-    background-color: rgb(255, 255, 255);
-    display: flex;
-    flex-direction: column;
-    padding: 4rem 0;
-  }
-  
-  .sidebar > a:first-child {
-    padding: 0;
-  }
-  .sidebar > a > img {
-    width: 100%;
-    transition: all 0.5s;
-  }
-  
-  .sidebar > a > img:hover {
-    filter: drop-shadow(0 0 10px tomato);
-  }
-  .sidebar a {
+.sideBar{
+  height: 100vh;
+  width: 20vmax;
+  padding-top: 10vmax;
+  box-shadow: 5px -3px 10px #0002;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  font-size: 1.2rem;
+
+  a{
     text-decoration: none;
-    color: rgba(0, 0, 0, 0.493);
-    font: 200 1rem "Roboto";
-    padding: 2rem;
-    transition: all 0.5s;
+    color: #0008;
   }
-  .sidebar a:hover {
-    color: tomato;
-    transform: scale(1.1);
+  a:hover{
+    color: red;
   }
-  
-  .sidebar a > P {
-    display: flex;
-    align-items: center;
-  }
-  .sidebar a > p > svg {
-    margin-right: 0.5rem;
-  }
-  
-  .MuiTypography-root {
-    background-color: #fff !important;
-  }
-  
+}
+.sideBar a:nth-child(1){
+  font-size: 1.7rem;
+  color: red;
+}

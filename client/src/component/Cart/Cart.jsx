@@ -50,10 +50,11 @@ export default function Cart() {
                 <p>Quantity</p>
                 <p>SubTotal</p>
             </div>
-        </div>
 
 
         {/* Adding Cart itrem row */}
+        <div className="CartCont">
+
         {
             cartItems && cartItems.map(item=>(
                 <div className="cartContainer" key={item.product}>
@@ -71,7 +72,7 @@ export default function Cart() {
                 </div>
             ))
         }
-
+        </div>
 
         
 
@@ -98,6 +99,9 @@ export default function Cart() {
                 <button onClick={handleShipping}>Check Out</button>
             </div>
         </div>
+
+        </div>
+
         </>
     }
     </>

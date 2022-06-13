@@ -11,9 +11,9 @@
     max-width: 100%;
   }
   .homeContainer {
-    // background-image: url("../../images/cover.jfif");
-    background: linear-gradient(#000, #fff);
-    background-position: center;
+    background-image: url("../../assets/1.jpg");
+    // background: linear-gradient(#000, #fff);
+    background-position: bottom;
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vmin;
@@ -24,6 +24,8 @@
     align-items: center;
     justify-content: center;
     color: white;
+    margin-bottom: 10vmax;
+    text-shadow: 1px 1px 1px #0007;
   }
   
   .homeContainer > h1 {
@@ -45,22 +47,40 @@
     padding: 1vmax;
     transition: all 0.5s;
     width: 9vmax;
-    font: 500 1vmax "Roboto";
+    font: 500 1.2vmax "Roboto";
+    border-radius: 10px;
+    box-shadow: 2px 1px 5px #0005;
   }
   .homeContainer > a > button:hover {
     background-color: rgba(255, 255, 255, 0);
     color: white;
   }
   
-  .homeContainer::after {
-    content: "";
-    width: 100vw;
-    height: 100vmin;
-    background-color: #ffffff3b;
-    position: absolute;
-    top: 0%;
-    left: 0;
-    clip-path: polygon(100% 68%, 0 100%, 100% 100%);
-    max-width: 100%;
+  // .homeContainer::after {
+  //   content: "";
+  //   width: 100vw;
+  //   height: 100vmin;
+  //   position: absolute;
+  //   top: 0%;
+  //   left: 0;
+  //   // clip-path: polygon(100% 68%, 0 100%, 100% 100%);
+  //   max-width: 100%;
+  // }
+
+  .homeHeading
+  {
+    font-size: 2rem;
+    color: #0008;
+
+    div{
+      // position: relative;
+      // bottom: 10px;
+      // left: 0;
+      height: 2px;
+      width: 100%;
+      margin-top: 1vmax;
+      background-color: #0008;
+
+    }
   }
   

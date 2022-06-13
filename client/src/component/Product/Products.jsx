@@ -62,6 +62,7 @@ export default function Products({match}) {
             <>
             
             <Additional title={`DeepR19 | Products`}/>
+<div className="ProdContainer">
 
                 <div className="productsHeading">Products</div>
 
@@ -74,46 +75,51 @@ export default function Products({match}) {
                 </div>
 
                 <div className="filterBox">
-                    <Typography>Price</Typography>
+                    <div>
+                        <Typography>Price</Typography>
 
-                    <Slider
-                        value={price}
-                        onChange={priceHandler}
-                        valueLabelDisplay='auto'
-                        aria-labelledby='range-slider'
-                        min={0}
-                        max={30000}
-                    ></Slider>
-
-
-                    <Typography>Categories</Typography>
-
-                    <ul>
-                        {
-                            categories.map(opt=>(
-                                <li className="category-link"
-                                onClick={()=>{setCategory(opt)}}>
-                                    {opt}
-                                </li>
-                            ))
-                        }
-                    </ul>
-
-
-                    <fieldset>
-                        <Typography component="legend">Rating Above</Typography>
-                        
                         <Slider
-                            value={rating}
-                            onChange={(e, newRating)=>{
-                                setRating(newRating)
-                            }}
-                            aria-labelledby= "continuous-slider"
-                            valueLabelDisplay='auto'
+                            value={price}
+                            onChange={priceHandler}
+                            valueLabelDisplay='on'
+                            aria-labelledby='range-slider'
                             min={0}
-                            max={5}
-                        ></Slider>
-                    </fieldset>
+                            max={30000}
+                            ></Slider>
+                    </div>
+
+                    <div>
+
+                        <Typography className="filterH">Categories</Typography>
+
+                        <ul>
+                            {
+                                categories.map(opt=>(
+                                    <li className="category-link"
+                                    onClick={()=>{setCategory(opt)}}>
+                                        {opt}
+                                    </li>
+                                ))
+                            }
+                        </ul>
+                    </div>
+
+                    <div>
+                        <fieldset>
+                            <Typography component="legend" >Rating Above</Typography>
+                            
+                            <Slider
+                                value={rating}
+                                onChange={(e, newRating)=>{
+                                    setRating(newRating)
+                                }}
+                                aria-labelledby= "continuous-slider"
+                                valueLabelDisplay='auto'
+                                min={0}
+                                max={5}
+                                ></Slider>
+                        </fieldset>
+                    </div>
                 </div>
 
                 {(resuluPerPage < count) && 
@@ -132,7 +138,9 @@ export default function Products({match}) {
                             activeClass = "pageItemActive"
                             activeLinkClass='pageLinkActive' />
                 </div>
-                }
+
+}
+</div>
             </>
         }
     </>

@@ -1,11 +1,20 @@
+.ProdContainer{
+  background-image: url("../../assets/2.jpg");
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vmin;
+  width: 100%;
+}
 .productsHeading {
     margin: 2vmax auto;
     width: 15vw;
     border-bottom: 1px solid rgba(0, 0, 0, 0.171);
-    padding: 2vmax;
+    padding: 1vmax;
     color: rgba(0, 0, 0, 0.678);
-    font: 500 1.5vmax "Roboto";
+    font: 500 1.7vmax "Roboto";
     text-align: center;
+    margin-top: 8vmax;
   }
   
   .products {
@@ -68,11 +77,27 @@
   
   .filterBox {
     width: 10vmax;
+    height: 70%;
     position: absolute;
     top: 10vmax;
     left: 4vmax;
+    padding-right: 2vmax;
+    border-right: 5px solid #0001;
+
+    div{
+      margin: 3vmax 0;
+
+      fieldset{
+        border-color: #0005;
+        // padding: 0 4vmax;
+        width: 9vmax;
+      }
+    }
   }
-  
+  .filterH{
+    font-size: 1.2rem;
+    border-bottom: 1px solid #0002;
+  }
   .categoryBox {
     padding: 0%;
   }
@@ -84,6 +109,7 @@
     margin: 0.4vmax;
     cursor: pointer;
     transition: all 0.5s;
+    text-align: start;
   }
   .category-link:hover {
     color: tomato;

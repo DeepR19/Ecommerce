@@ -1,8 +1,6 @@
 import React, { useEffect , useState} from 'react';
 import {useDispatch, useSelector} from "react-redux"
 import {getProductDetails, newReview} from "../../Actions/productAction";
-// import  {Link} from "react-router-dom";
-import ReactStars from 'react-rating-stars-component';
 import Carousel from "react-material-ui-carousel"
 import ReviewCard from "./ReviewCard.jsx"
 import Loading from '../layout/Loading/Loading';
@@ -21,7 +19,6 @@ import {
 import {Rating} from "@material-ui/lab";
 import { New_Review_Reset } from '../../Constants/productConstant';
 import "./ProductDetails.scss"
-// import {useAlert} from "react-alert";
 
 export default function ProductDetails({match}) {
     let {id} = useParams();
@@ -62,7 +59,7 @@ export default function ProductDetails({match}) {
         }
 
         dispatch(getProductDetails(id))
-    },[dispatch, id, success])
+    },[dispatch, id, success, comment])
    
 
     // increase quantity
@@ -118,7 +115,7 @@ export default function ProductDetails({match}) {
               </Carousel>
             </div>
 
-            <div>
+            <div className='PD2'>
               <div className="detailsBlock-1">
                 <h2>{product.name}</h2>
                 <p>Product # {product._id}</p>
@@ -172,10 +169,10 @@ export default function ProductDetails({match}) {
             open={open}
             onClose={submitReviewToggle}
           >
-            <DialogTitle>Submit Review</DialogTitle>
+            <DialogTitle className="diaHead">Submit Review</DialogTitle>
             <DialogContent className="submitDialog">
               <Rating
-                onChange={(e) => setRating(e.target.value)}
+                onChange={(e) => {setRating(e.target.value)}}
                 value={rating}
                 size="large"
               />
@@ -198,6 +195,8 @@ export default function ProductDetails({match}) {
             </DialogActions>
           </Dialog>
 
+          <div className="revCont">
+
           {product.reviews && product.reviews[0] ? (
             <div className="reviews">
               {product.reviews &&
@@ -208,6 +207,8 @@ export default function ProductDetails({match}) {
           ) : (
             <p className="noReviews">No Reviews Yet</p>
           )}
+          </div>
+
             </>
             :<Loading/>
         
