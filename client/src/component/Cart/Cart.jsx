@@ -45,6 +45,7 @@ export default function Cart() {
     {cartItems.length === 0 ? "No Item Present" :
     <>
         <div className="cartPage">
+    <h1>CART</h1>
             <div className="cartHeadar">
                 <p>Products</p>
                 <p>Quantity</p>

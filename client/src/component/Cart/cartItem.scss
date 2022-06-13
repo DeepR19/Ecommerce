@@ -1,8 +1,38 @@
-.cardItem{
-  width: 10vmax;
-  height: 10vmax;
-  background: red;
+.carditem{
+  padding: 0 13vmax;
   display: flex;
   justify-content: space-around;
   align-items: center;
+
+  div{
+    display: flex;
+    flex-direction: column;
+    
+
+    a{
+      text-decoration: none;
+      color: tomato;
+      font-weight: bolder;
+      font-size: 1.1rem;
+      transition: .2s;
+    }
+    a:hover{
+      transform: translateY(-4px);
+      font-size: 1.5rem;
+    }
+    span{
+      color: #0008;
+    }
+    p{
+      border: 2px solid tomato;
+      padding: .4vmax 1vmax;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: .2s;
+    }
+    p:hover{
+      background-color: tomato;
+      color: #fff;
+    }
+  }
 }

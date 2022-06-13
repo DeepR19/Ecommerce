@@ -7,6 +7,8 @@ import { useDispatch, useSelector} from "react-redux";
 import {loadUser , updateProfile} from "../../Actions/userAction"
 import { Update_Profile_Reset } from '../../Constants/userConstant';
 
+import "./updateProfile.scss"
+
 export default function UpdateProfile() {
 
     const dispatch = useDispatch();
@@ -90,15 +92,15 @@ export default function UpdateProfile() {
             loading? <Loading/> :
        
     <>
- <div className="updateProfileContainer">
+ <div className="updateProfileContainer1">
             <h1>Update Profile</h1>
 
             <form
-                className='signupForm'
+                className='updateProForm'
                 encType='multipart/form-data'
                 onSubmit={updateProfileSubmit}>
 
-                <div className="signupImage">
+                <div className="updateProImage">
                     <img src={imagePrev} alt="user Pic" />
 
                     <input type="file" name="avatar"
@@ -106,7 +108,7 @@ export default function UpdateProfile() {
                         onChange={handleData} />
                 </div>
 
-                <div className="SignupNameBox">
+                <div className="updateProNameBox">
 
                     <FaceIcon/>
 
@@ -118,7 +120,7 @@ export default function UpdateProfile() {
                         onChange={handleData} />
 
                 </div>
-                <div className="SignupEmailBox">
+                <div className="updateProEmailBox">
 
                     <MailOutlineIcon/>
 
@@ -134,8 +136,8 @@ export default function UpdateProfile() {
 
 
                 <input type="submit"
-                    className="signupBtn"
-                    value="updateProfile"
+                    className="updateProBtn"
+                    value="Update"
                     // disabled ={loading ? true : false} 
                     />
             </form>

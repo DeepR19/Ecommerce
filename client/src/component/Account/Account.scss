@@ -1,0 +1,94 @@
+.acxPor{
+    position: absolute;
+    // margin-top: 10vmax;
+    top: 10vmax;
+    left: 65vmax;
+    color: #0007;
+    padding-bottom: 1vmax;
+    border-bottom: 2px solid #0002;
+    z-index: 10;
+}
+
+.profileContainer{
+    height: 80vh;
+    width: 80%;
+    margin-top: 8vmax;
+    background: #fff6;
+    box-shadow: 2px 2px 10px #0002;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .Name{
+        height: 100%;
+        width: 50%;
+        border-right: 5px solid #0002;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        img{
+            height: 300px;
+            width: 310px;
+            border-radius: 50%;
+            border: 2px solid #0006;
+        }
+
+        a{
+            text-decoration: none;
+            font-size: 1.3rem;
+            margin-top: 2vmax;
+            height: 3vmax;
+            width: 10vmax;
+            border-radius: 10px;
+            display: flex;
+        align-items: center;
+        justify-content: center;
+            background: tomato;
+            color: #fff;
+        }
+    }
+
+    .Data{
+        height: 80%;
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+
+        div{
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            width: 20vmax;
+            height: 40px;
+
+
+            p{
+                margin-left: 1vmax;
+            }
+        }
+        .proLinek{
+            width: 30vmax;
+            margin-top: 3vmax;
+            justify-content: space-around;
+
+            a{
+                text-decoration: none;
+                height: 3vmax;
+            width: 10vmax;
+            border-radius: 10px;
+            display: flex;
+        align-items: center;
+        justify-content: center;
+            background: tomato;
+            color: #fff;
+            }
+        }
+    }
+    
+}

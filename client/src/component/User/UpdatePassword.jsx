@@ -8,6 +8,8 @@ import LockOpenIcon from "@material-ui/icons/LockOpen";
 import VpenKeyIcon from "@material-ui/icons/VpnKey";
 import LockIcon from "@material-ui/icons/Lock";
 
+import "./updatePass.scss"
+
 export default function UpdatePassword() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -58,7 +60,7 @@ export default function UpdatePassword() {
         loading? <Loading/> :
    
 <>
-<div className="updateProfileContainer">
+<div className="updatePasswordContainer">
         <h1>Update Password</h1>
 
         <form
@@ -104,7 +106,7 @@ export default function UpdatePassword() {
 
             <input type="submit"
                 className="signupBtn"
-                value="updateProfile"
+                value="Update"
                 // disabled ={loading ? true : false} 
                 />
         </form>

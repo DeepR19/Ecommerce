@@ -5,6 +5,8 @@ import Loading from "../layout/Loading/Loading";
 import {useSelector} from "react-redux";
 import { useEffect } from 'react';
 
+import "./Account.scss";
+
 export default function Account({user}) {
   const navigate = useNavigate()
   const {loading, isAuthenticated} = useSelector(state => state.user);
@@ -24,21 +26,22 @@ export default function Account({user}) {
     <>
         <Additional title={`${user.user.name}'s Profile`}/>
        
+           <h1 className='acxPor'>My Profile</h1>
        <div className="profileContainer">
-         <div>
-           <h1>My Profile</h1>
+           
+         <div className='Name'>
            <img src={user.user.avatar.url} alt={user.user.name} />
            <Link to="/me/update">Edit Profile</Link>
          </div>
 
-         <div>
+         <div className='Data'>
            <div>
-             <h4>FullName</h4>
+             <h4>FullName :- </h4>
              <p>{user.user.name}</p>
            </div>
 
            <div>
-             <h4>Email</h4>
+             <h4>Email :- </h4>
              <p>{user.user.email}</p>
            </div>
            
@@ -54,7 +57,7 @@ export default function Account({user}) {
                 : {}}
            </div> */}
 
-           <div>
+           <div className='proLinek'>
              <Link to='/orders/me'>My Orders</Link>
              <Link to='/password/update'>Change Password</Link>
            </div>
