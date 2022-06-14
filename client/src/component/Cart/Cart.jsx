@@ -76,9 +76,22 @@ export default function Cart() {
         </div>
 
         
+        <div className="cartGrossProfit">
+              <div></div>
+              <div className="cartGrossProfitBox">
+                <p>Gross Total</p>
+                <p>{`₹${cartItems.reduce(
+                  (acc, item) => acc + item.quantity * item.price,
+                  0
+                )}`}</p>
+              </div>
+              <div></div>
+              <div className="checkOutBtn">
+                <button onClick={handleShipping}>Check Out</button>
+              </div>
+            </div>
 
-
-        <div className="cartGrossPrice">
+        {/* <div className="cartGrossPrice">
             <div></div>
             <div className="GrossPriceBox">
                 <p>Gross Total</p>
@@ -99,7 +112,7 @@ export default function Cart() {
             <div className="checkOutBtn">
                 <button onClick={handleShipping}>Check Out</button>
             </div>
-        </div>
+        </div> */}
 
         </div>
 

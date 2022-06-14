@@ -5,7 +5,7 @@ import {Link, useParams} from "react-router-dom";
 import {getOrderDetails} from "../../Actions/orderAction";
 import Loading from "../layout/Loading/Loading";
 import Additional from "../layout/Additional";
-
+import "./orderDetails.scss"
 export default function OrderDetails() {
     const {order, loading} = useSelector(state=> state.orderDetails);
     const {id} = useParams();
@@ -64,7 +64,7 @@ export default function OrderDetails() {
                                         {
                                             order.paymentInfo && 
                                             order.paymentInfo.status === "succeeded"?
-                                            "Paid" : "Not Paid"
+                                            ">>> Paid <<<" : " >>> Not Paid <<<"
                                          }
                                     </p>
                                 </div>
@@ -76,7 +76,7 @@ export default function OrderDetails() {
                             </div>
 
                             <h3>Order Status</h3>
-                            <div className="orderDetailsContainerBox">
+                            <div className="orderDetailsContainerBox orcb1">
                                 <div>
                                     <p className={
                                             order.paymentInfo && 

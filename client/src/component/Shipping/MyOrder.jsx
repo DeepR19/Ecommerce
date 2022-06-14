@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import Additional from '../layout/Additional';
 import LaunchIcon from "@material-ui/icons/Launch"
 import { useEffect } from 'react';
-import "./Shipping.scss"
+import "./Myorder.scss"
 
 export default function MyOrder() {
   const dispatch = useDispatch();

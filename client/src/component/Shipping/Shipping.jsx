@@ -14,6 +14,7 @@ import TransferWithinAStationIcon from "@material-ui/icons/TransferWithinAStatio
 import CheckOutStep from "./CheckOutStep"
 import { useNavigate } from 'react-router-dom';
 
+import "./Shipping.scss"
 export default function Shipping() {
 
     const dispatch = useDispatch()

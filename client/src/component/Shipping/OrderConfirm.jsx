@@ -50,6 +50,7 @@ export default function OrderConfirm() {
         <div>
           <div className="confirmshippingArea">
             <h3>Shipping Info</h3>
+
             <div className="confirmshippingAreaBox">
               <div>
                 <p>Name:</p>
@@ -65,6 +66,7 @@ export default function OrderConfirm() {
               </div>
             </div>
           </div>
+
           <div className="confirmCartItems">
             <h3>Your Cart Items:</h3>
             <div className="confirmCartItemsContainer">
@@ -76,8 +78,8 @@ export default function OrderConfirm() {
                       {item.name}
                     </Link>{" "}
                     <span>
-                      {item.quantity} X ₹{item.price} ={" "}
-                      <b>₹{item.price * item.quantity}</b>
+                      {item.quantity} X ₹{item.price} = {" "}
+                      <b> ₹{item.price * item.quantity}</b>
                     </span>
                   </div>
                 ))}

@@ -1,0 +1,20 @@
+.contactContainer{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    background: url("../../assets/2.jpg");
+    background-position: center;
+    background-size: contain;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #fff;
+    font-size: 2rem;
+    text-shadow: 2px 1px 1px #f00,
+    0px -1px 1px #f00;
+
+    a{
+        text-decoration: none;
+        color: #fff;
+    }
+}

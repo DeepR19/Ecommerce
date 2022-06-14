@@ -23,7 +23,6 @@ export default function Search() {
             <Additional title="Search a product"/>
 
             
-            <Link to="/products" className='GBN'>Go Back</Link>
             <form className="searchBox" onSubmit={searchHandler}>
                 <input type="text"
                 placeholder='Search a Product...'

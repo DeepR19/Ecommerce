@@ -6,6 +6,8 @@ import LocalShippingIcon from "@material-ui/icons/LocalShipping"
 import LibraryAddCheckIcon from "@material-ui/icons/LibraryAddCheck";
 import AccountBalanceIcon from "@material-ui/icons/AccountBalance";
 
+import "./CheckoutSteps.scss"
+
 export default function CheckOutStep({activeSteps}) {
     const steps = [
         {
@@ -23,7 +25,7 @@ export default function CheckOutStep({activeSteps}) {
     ];
   return (
    <>
-        <Stepper alternativeLabel activeStep={activeSteps}>
+        <Stepper className="stepOut" alternativeLabel activeStep={activeSteps}>
             {steps.map((item,index) => (
                 <Step 
                     key={index}

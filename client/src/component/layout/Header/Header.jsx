@@ -16,25 +16,7 @@ export default function Header() {
   const dispatch = useDispatch()
 
   // based on login header will change
-  const data = ()=>{
-    if(isAuthenticated){
-      return(
-        <>
-          <Link to="/logout" title='logout'>
-              <Logout/>
-          </Link>
-        </>
-      )
-    }else{
-      return(
-        <>
-          <Link to="/login" title='login'>
-              <AcIcon/>
-          </Link>
-        </>
-      )
-    }
-  };
+  
 
   useEffect(()=>{
     dispatch(loadUser())
@@ -71,7 +53,6 @@ export default function Header() {
           <Link to="/cart">
               <ShopIcon/>
           </Link>
-          {data()}
         </div>
     </div>
   )
