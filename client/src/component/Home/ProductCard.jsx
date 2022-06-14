@@ -25,6 +25,7 @@ export default function ProductCard({product}) {
         </div>
 
         <span><b> Rs. {product.price}</b></span>
+        
     </Link>
   )
 }

@@ -54,6 +54,11 @@ export default function Header() {
               <ShopIcon/>
           </Link>
         </div>
+        {
+          !isAuthenticated && <Link to="/login" className='loginPin'>
+            <AcIcon/>
+          </Link>
+        }
     </div>
   )
 }

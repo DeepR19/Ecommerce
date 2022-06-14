@@ -1,11 +1,13 @@
 import React from 'react';
 import { useState } from 'react';
-import Loading from "../layout/Loading/Loading";
-import {useNavigate} from "react-router-dom"
+import Loading from "../../layout/Loading/Loading";
+import {useNavigate,Link} from "react-router-dom"
 
 import {useSelector, useDispatch} from "react-redux";
-import { register } from '../../Actions/userAction';
+import { register } from '../../../Actions/userAction';
 import { useEffect } from 'react';
+
+
 
 export default function Signup() {
     const dispatch = useDispatch();
@@ -87,8 +89,6 @@ export default function Signup() {
 
                 <div className="SignupNameBox">
 
-                    {/* <MailOutlineIcon/> */}
-
                     <input type="text" 
                         name="name"
                         placeholder='Enter your Username'
@@ -98,8 +98,6 @@ export default function Signup() {
 
                 </div>
                 <div className="SignupEmailBox">
-
-                    {/* <MailOutlineIcon/> */}
 
                     <input type="email" 
                         name="email"
@@ -111,8 +109,6 @@ export default function Signup() {
                 </div>
                 <div className="loginPassBox">
 
-                    {/* <LockOpenIcon/> */}
-
                     <input type="password" 
                         name="password"
                         placeholder='Enter your password'
@@ -122,6 +118,7 @@ export default function Signup() {
 
                 </div>
 
+                <Link to='/login'>Already have an account?</Link>
 
                 <input type="submit"
                     className="signupBtn"

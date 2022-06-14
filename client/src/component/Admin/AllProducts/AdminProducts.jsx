@@ -31,7 +31,7 @@ export default function AdminProducts() {
 
     if(isDeleted){
       alert("Yes deleted")
-      navigate("/admin/dashboard")
+      // navigate("/admin/d")
       dispatch({
         type: Delete_Product_Reset
       })

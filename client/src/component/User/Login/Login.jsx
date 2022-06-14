@@ -1,13 +1,14 @@
 import React, {useEffect, useState} from 'react';
-import Loading from "../layout/Loading/Loading"
+import Loading from "../../layout/Loading/Loading"
 import {Link, useLocation, useNavigate} from "react-router-dom";
 import MailOutlineIcon from "@material-ui/icons/MailOutline"
 import LockOpenIcon from "@material-ui/icons/LockOpen"
 
 import {useSelector, useDispatch} from "react-redux";
-import {login} from "../../Actions/userAction";
+import {login} from "../../../Actions/userAction";
+import "./LoginSignup.scss"
 
-export default function Login({history, location}) {
+export default function Login() {
     const [email, setEmail] =useState("")
     const [password, setPassword] =useState("")
     // const location = useLocation();
@@ -64,7 +65,12 @@ export default function Login({history, location}) {
                         onChange={(e)=>setPassword(e.target.value)} />
 
                 </div>
-                <Link to="/password/forgot">Forgot Password?</Link>
+
+                <div className='LoginLink1'>
+
+                    <Link to="/password/forgot">Forgot Password?</Link>
+                    <Link to="/signup">Make an Account?</Link>
+                </div>
                 <button type='submit'>Login</button>
             </form>
         </div>

@@ -40,9 +40,9 @@
     color: tomato;
   }
   
-  .MuiDataGrid-columnHeader {
-    background-color: tomato;
-    padding: 1vmax !important;
+  .MuiDataGrid-window{
+    background-color: #fff9;
+    backdrop-filter: blur(8px);
   }
   
   .MuiDataGrid-columnHeader div {

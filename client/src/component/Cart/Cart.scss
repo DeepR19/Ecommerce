@@ -30,7 +30,7 @@
     grid-template-columns: 3fr 1fr 1fr;    
     font-size: 1.3rem;
     color: #fff;
-    background-color: tomato;
+    background-color: red;
   }
 
   .cartContainer{
@@ -73,7 +73,7 @@
 }
 
 .cartGrossProfitBox {
-  border-top: 3px solid tomato;
+  border-top: 3px solid red;
   margin: 1vmax 4vmax;
   box-sizing: border-box;
   padding: 0vmax 7.5vmax;
@@ -91,7 +91,7 @@
   justify-content: center;
 }
 .checkOutBtn > button {
-  background-color: tomato;
+  background-color: red;
   color: white;
   border: none;
   padding: 0.8vmax 4vmax;

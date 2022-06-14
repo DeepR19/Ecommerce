@@ -1,10 +1,8 @@
 .dashboard{
-    background-image: url("../../../assets//2.jpg");
+    background-image: url("../../../assets/23.png");
     background-position: top;
-    background-repeat: no-repeat;
-    background-size: cover;
-    // background-size: auto;
-    // opacity: .5;
+    background-repeat: repeat-y;
+    background-size: contain;
     height: 160vmin;
     width: 100%;
     display: flex;
@@ -48,8 +46,8 @@
                 margin: 3vmax 0;
 
                 a{
-                    height: 8vmax;
-                    width: 10vmax;
+                    height: 7vmax;
+                    width: 8vmax;
                     margin: 0 4vmax;
                     border-radius: 50%;
                     background-color: #f03b3b;
@@ -78,9 +76,11 @@
 
         .lineChart{
             width: 40vmax;
+            background-color: #ddd;
         }
         .doughnnutChart{
             width: 30vmax;
+            background-color: #ddd;
         }
 
     }

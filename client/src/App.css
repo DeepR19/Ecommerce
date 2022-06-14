@@ -4,8 +4,8 @@
   justify-content: center;
   flex-direction: column;
   text-align: center;
-  background: url("./assets//2.jpg"), linear-gradient(  #fff1, #0000, #fff1, #aaa);
-  background-blend-mode: multiply;
-  background-position: right;
+  background: url("./assets/45.png");
+  background-position: center;
+  background-repeat: round;
   background-size: contain;
 }

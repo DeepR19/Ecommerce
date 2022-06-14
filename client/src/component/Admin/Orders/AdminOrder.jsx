@@ -9,7 +9,6 @@ import SideBar from "../SideBar"
 
 import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
-import {deleteProduct } from "../../../Actions/productAction";
 import {Delete_Product_Reset} from "../../../Constants/productConstant"
 import { deleteOrder, getAllOrders } from '../../../Actions/orderAction';
 import { Delete_Order_Reset } from '../../../Constants/orderConstant';

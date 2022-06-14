@@ -8,7 +8,6 @@ const cloudinary = require("cloudinary");
 // create a product -- Admin
 exports.createProd = AsyncErr(async (req, res , next)=>{
     let images = [];
-    console.log(req.body)
 
     if(typeof(req.body.images) === "string"){
         images.push(req.body.images)
@@ -16,21 +15,25 @@ exports.createProd = AsyncErr(async (req, res , next)=>{
         images = req.body.images
     }
 
+
     const imagesLink = [];
 
-    for(let i=0; i<images.length;i++){
-        const result = await cloudinary.v2.uploader.upload(images[i], {
-            folder: "products"
+    let i = 0;
+    let result
+
+   while(i< images.length) {
+        result = await cloudinary.v2.uploader.upload(images[i], {
+          folder: "products",
         });
 
         imagesLink.push({
-            public_id: result.public_id,
-            url: result.secure_url
-        })
-    };
+          public_id: result.public_id,
+          url: result.secure_url
+        });
+        i++;
+      }
 
-
-    req.body.images = imagesLink;
+      req.body.images = imagesLink;
     req.body.user = req.user.id;    // req.user data came from middleware
 
     const product = await Product.create(req.body);

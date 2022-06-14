@@ -4,8 +4,8 @@ import ErrPage from "./component/ErrPage/ErrPage.jsx"
 import ProductDetails from "./component/ProductDetails/ProductDetails.jsx";
 import Products from "./component/Product/Products.jsx"
 import Search from "./component/Product/Search.jsx"
-import Login from './component/User/Login';
-import Signup from './component/User/Signup';
+import Login from './component/User/Login/Login';
+import Signup from './component/User/Login/Signup';
 import Account from './component/Account/Account' ;
 import UserOptions from './component/layout/Options/UserOptions';
 import UpdateProfile  from './component/User/UpdateProfile.jsx';
@@ -95,6 +95,7 @@ function App() {
             <Route exact path="/order/confirm" element={ isAuthenticated === false? <Login/> : <OrderConfirm user={user}/>}/>
             <Route exact path="/success" element={ isAuthenticated === false? <Login/> : <OrderSuccess/>}/>
             <Route exact path="/orders" element={ isAuthenticated === false? <Login/> : <MyOrder/>}/>
+            {/* <Route exact path="/orders/me" element={ isAuthenticated === false? <Login/> : <OrderMe/>}/> */}
             <Route exact path="/order/:id" element={ isAuthenticated === false? <Login/> : <OrderDetails/>}/>
             
             <Route exact path="/admin/dashboard" element={ isAuthenticated === false? <Login/> : <Dashboard/>}/>

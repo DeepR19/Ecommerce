@@ -9,9 +9,27 @@ import Pagination from "react-js-pagination";
 import Slider from "@material-ui/core/Slider"
 import Typography from "@material-ui/core/Typography"
 import Additional from "../layout/Additional"
+import { ThemeProvider } from '@material-ui/styles';
+import { createMuiTheme } from '@material-ui/core/styles';
+
 import "./Product.scss"
 
 
+const muiTheme = createMuiTheme({
+  overrides:{
+    MuiSlider: {
+      thumb:{
+      color: "red",
+      },
+      track: {
+        color: 'red'
+      },
+      rail: {
+        color: 'black'
+      }
+    }
+}
+});
 
 const categories =[
     "Laptop",
@@ -78,14 +96,17 @@ export default function Products({match}) {
                     <div>
                         <Typography>Price</Typography>
 
+                        <ThemeProvider theme={muiTheme}>
                         <Slider
                             value={price}
                             onChange={priceHandler}
                             valueLabelDisplay='on'
+                            
                             aria-labelledby='range-slider'
                             min={0}
                             max={30000}
                             ></Slider>
+                            </ThemeProvider>
                     </div>
 
                     <div>

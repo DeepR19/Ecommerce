@@ -4,7 +4,7 @@ import { createProduct } from '../../../Actions/productAction';
 import { Button } from '@material-ui/core';
 import SideBar from '../SideBar';
 import { New_Product_Reset } from '../../../Constants/productConstant';
-
+import Loading from "../../layout/Loading/Loading"
 import AccountTreeIcon from "@material-ui/icons/AccountTree"
 import DescriptionIcon from "@material-ui/icons/Description";
 import StorageIcon from "@material-ui/icons/Storage";
@@ -17,7 +17,7 @@ import {  useNavigate } from 'react-router-dom';
 export default function NewProduct() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  const {loading, success} = useSelector(state => state.newProduct)
+  const {loading, success, error} = useSelector(state => state.newProduct)
 
   const [data, setData] = useState({
     name:'',
@@ -25,6 +25,7 @@ export default function NewProduct() {
     description: "",
     category : "",
     Stock: "",
+    images: []
   })
 
   // const [price, setPrice] = useState(0)
@@ -49,12 +50,16 @@ useEffect(()=>{
     navigate("/admin/dashboard")
     dispatch({type: New_Product_Reset})
   }
-}, [dispatch, navigate, success])
+  if(error){
+    alert("Try another Images")
+  }
+}, [dispatch, navigate, success, error])
 
 const submitHadler = (e)=>{
   e.preventDefault();
 
   const myForm = new FormData()
+
   myForm.set("name", data.name)
   myForm.set("price", data.price)
   myForm.set("description", data.description)
@@ -62,7 +67,7 @@ const submitHadler = (e)=>{
   myForm.set("Stock", data.Stock)
 
   images.forEach(image =>{
-    myForm.append('images', images)
+    myForm.append('images', image)
   })
 
   dispatch(
@@ -70,30 +75,35 @@ const submitHadler = (e)=>{
   )
 };
 
-
 const createProdImagesChange = (e) =>{
   const files = Array.from(e.target.files);
 
   setImages([])
   setImagePrev([])
 
+  
   files.forEach(item=>{
     const reader = new FileReader();
-
+    
     reader.onload = () => {
       if(reader.readyState === 2){
         setImagePrev(old => [...old, reader.result]);
         setImages(old => [...old, reader.result])
+        
       }
     };
 
     reader.readAsDataURL(item)
   });
 
+  
+
 }
 
   return (
     <>
+    {
+      loading?<Loading/>:
         <div className="dashboard  dash1">
           <SideBar/>
 
@@ -177,6 +187,7 @@ const createProdImagesChange = (e) =>{
             </form>
           </div>
         </div>
+}
     </>
   )
 }
