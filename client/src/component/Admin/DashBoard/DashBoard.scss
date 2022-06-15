@@ -7,17 +7,22 @@
     width: 100%;
     display: flex;
     padding-top: 10vmax;
+    min-width: 700px;
 
     .dashBoardContainer{
-            width: 100%;
+            position: absolute;
+            left: 20vmax;
+            width: 80vw;
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: flex-start;
 
         h1{
             width: fit-content;
             border-bottom: 2px solid #0003;
             padding-bottom: 1vmax;
+            margin-top: 1rem;
         }
         .dashboardSummry{
             display: flex;
@@ -40,7 +45,7 @@
             }
 
             .dashboardSummaryBox2{
-                width: 80%;
+                width: 100%;
                 display: flex;
                 justify-content: space-around;
                 margin: 3vmax 0;
@@ -52,7 +57,7 @@
                     border-radius: 50%;
                     background-color: #f03b3b;
                     display: flex;
-                    font-size: 1.5rem;
+                    font-size: 1.1rem;
                     flex-direction: column;
                     justify-content: center;
                     text-decoration: none;
@@ -75,13 +80,93 @@
 
 
         .lineChart{
-            width: 40vmax;
+            width: 40vw;
             background-color: #ddd;
         }
         .doughnnutChart{
-            width: 30vmax;
+            width: 30vw;
             background-color: #ddd;
         }
 
+    }
+}
+
+
+@media screen and (max-width: 1000px) {
+
+  
+    .dashboard .dashBoardContainer .dashboardSummry .dashboardSummaryBox2{
+        width: 60vmax;
+        margin-left: 5vmax;
+    }
+    .dashboard .dashBoardContainer .dashboardSummry .dashboardSummaryBox2 a{
+        height: 10vmax;
+        width:10vmax;
+    }
+    .dashboard .dashBoardContainer .dashboardSummry .DS1{
+        width: 30vmax;
+        height: 7vmax;
+    }
+    .dashboard .dashBoardContainer .lineChart{
+        margin: 5vmax 0;
+        width: 60vw;
+    }
+    .dashboard .dashBoardContainer .doughnnutChart{
+        margin: 5vmax 0;
+        width: 45vw;
+    }
+};
+
+
+
+
+@media screen and (max-width: 950px) {
+    .dashboard .dashBoardContainer{
+        left: 10vmax;
+    }
+}
+@media screen and (max-width: 800px) {
+    .dashboard .dashBoardContainer .dashboardSummry .dashboardSummaryBox2 a{
+        height: 13vmax;
+        width:13vmax;
+        margin-bottom: 2vmax;
+    }
+    .dashboard .dashBoardContainer .lineChart{
+        margin: 5vmax ;
+        width: 79vw;
+    }
+    .dashboard .dashBoardContainer .doughnnutChart{
+        margin: 5vmax 0;
+        width: 55vw;
+    }
+
+}
+
+
+@media screen and (max-width: 600px) {
+    .dashboard{
+        background-size: cover;
+        height: 130vh;
+    }
+    
+    .dashboard .dashBoardContainer .lineChart{
+        margin: auto ;
+        width: 60vmax;
+    }
+    .dashboard .dashBoardContainer .doughnnutChart{
+        width: 40vmax;
+
+    }
+
+    
+}
+
+@media screen and (max-width: 400px) {
+    .dashBoardContainer{
+        margin-left: 10vmax;
+    }
+    .dashboard .dashBoardContainer .lineChart{
+        margin-left: -10vmax ;
+        width: 60vmax;
     }
 }

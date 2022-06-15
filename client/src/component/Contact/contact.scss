@@ -1,6 +1,6 @@
 .contactContainer{
     height: 100vh;
-    width: 100%;
+    width: 100vw;
     display: flex;
     background: url("../../assets/3.png");
     background-repeat: no-repeat;
@@ -15,5 +15,12 @@
     a{
         text-decoration: none;
         color: #fff;
+    }
+}
+
+
+@media screen and (max-width: 800px) {
+    .contactContainer{
+        font-size: 1.2rem;
     }
 }

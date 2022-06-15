@@ -58,3 +58,17 @@
   background-color: #fff;
   transform: translateY(-1vmax) scale(1.1);
 }
+
+
+@media screen and (max-width: 1140px) {
+  .productCard{
+    width: 25vmax;
+    height: 35vmax;
+  }
+}
+@media screen and (max-width: 840px) {
+  .productCard{
+    width: 30vmax;
+    height: 40vmax;
+  }
+}

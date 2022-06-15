@@ -13,3 +13,9 @@
     font-size: 2rem;
     text-shadow: 2px 1px 1px #0006;
 }
+
+@media screen and (max-width: 800px) {
+    .aboutContainer{
+        font-size: 1.2rem;
+    }
+}

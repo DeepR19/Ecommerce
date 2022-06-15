@@ -13,9 +13,14 @@ import RateReviewIcon from "@material-ui/icons/RateReview";
 import "./sideBar.scss"
 
 export default function SideBar() {
+    const handleSide = (e)=>{
+        const par = e.target.parentElement;
+        par.classList.toggle("active")
+    }
   return (
     <>
         <div className="sideBar">
+            <div className="sideBarHam" onClick={handleSide}></div>
             <Link to="/">Home</Link>
 
             <Link to="/admin/dashboard">

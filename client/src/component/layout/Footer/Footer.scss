@@ -1,4 +1,6 @@
 footer{
+    position: absolute;
+    bottom: 0;
     height: 10vmax;
     width: 100vw;
     max-width: 100%;
@@ -9,4 +11,11 @@ footer{
     color: #0007;
     border-top: 2px solid #0002;
     margin-top: 5vmax;
+}
+
+@media screen and (max-width: 800px) {
+    footer{
+        display: none;
+        pointer-events: none;
+    }
 }

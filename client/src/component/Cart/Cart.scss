@@ -1,14 +1,3 @@
-.cardItem{
-  width: 10vmax;
-  height: 10vmax;
-  background: red;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-
-
 .cartPage{
   height: 80vh;
   width: 100%;
@@ -100,4 +89,26 @@
   margin: 1vmax 4vmax;
   cursor: pointer;
   border-radius: 30px;
+}
+
+
+@media screen and (max-width: 1000px) {
+  .cartPage .cartHeadar {
+    font-size: 1rem;
+  }
+  .cartPage .cartContainer .cardSubtotal{
+      font-size: .9rem;
+  }
+  .cartGrossProfitBox {
+    height: 20vmax;
+    width: 30vmax;
+    font-size: 1.4rem;
+  }
+  .checkOutBtn button{
+    padding: 1vmax;
+    font-size: 1.1rem;
+}
+.cartPage{
+  padding-bottom: 4vmax;
+}
 }

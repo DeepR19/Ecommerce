@@ -36,3 +36,20 @@
     }
   }
 }
+
+@media screen and (max-width: 1000px) {
+  .carditem >*{
+    font-size: .7rem;
+  }
+}
+@media screen and (max-width: 730px) {
+  .carditem div a{
+    font-size: .9rem;
+  }
+}
+@media screen and (max-width: 650px) {
+  .carditem{
+    width: 20vmax;
+    margin-left: -4vmax ;
+  }
+}
