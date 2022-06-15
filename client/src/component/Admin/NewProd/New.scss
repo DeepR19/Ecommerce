@@ -143,3 +143,17 @@
     }
   }
   
+  @media screen and (max-width: 500px){
+    .newProductContainer{
+      margin-left: 15vmax;
+      height: 80vh;
+      width: 70%;
+
+      .createProductForm > div{
+        width: 80%;
+      }
+      .createProductForm > button{
+        width: 80%;
+      }
+    }
+  }

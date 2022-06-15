@@ -1,9 +1,9 @@
 
 .ProdContainer{
-  // background-image: url("../../assets/2.jpg");
+  background-image: url("../../assets/24.jpg");
   background-position: top;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   height: 100vmin;
   width: 100%;
 }
@@ -14,16 +14,21 @@
     padding: 1vmax;
     color: rgba(0, 0, 0, 0.678);
     font: 500 1.7vmax "Roboto";
-    text-align: center;
+    text-align: center;      font-weight: bolder;
+
     margin-top: 8vmax;
   }
   
   .products {
+    position: relative;
+    width: 65vmax;
+    left: 20vmax;
     display: flex;
     flex-wrap: wrap;
     padding: 0 5vmax;
     justify-content: center;
     min-height: 30vh;
+    transition: .2s;
   }
   
   .paginationBox {
@@ -77,13 +82,15 @@
   }
   
   .filterBox {
-    width: 10vmax;
-    height: 70%;
+    width: 150px;
+    padding: 0 2vmax;
+    height: 60%;
     position: absolute;
     top: 10vmax;
     left: 4vmax;
     padding-right: 2vmax;
     border-right: 5px solid #0001;
+    background-color: #fff8;
 
     div{
       margin: 3vmax 0;
@@ -91,7 +98,7 @@
       fieldset{
         border-color: #0005;
         // padding: 0 4vmax;
-        width: 9vmax;
+        // width: 9vmax;
       }
     }
   }
@@ -106,7 +113,7 @@
   .category-link {
     list-style: none;
     color: rgba(0, 0, 0, 0.61);
-    font: 400 1.1vmax "Roboto";
+    font: 400 1.1rem "Roboto";
     margin: 0.4vmax;
     cursor: pointer;
     transition: all 0.5s;
@@ -119,11 +126,28 @@
   .filterBox > fieldset {
     border: 1px solid rgba(0, 0, 0, 0.329);
   }
+
   
+  @media screen and (max-width: 960px) {
+
+    .productsHeading{
+      font-size: 3vmax;
+      font-weight: bolder;
+    }
+  }
+  @media screen and (max-width: 760px) {
+    .products{
+      width: 50vmax;
+    }
+  }
   @media screen and (max-width: 600px) {
     .ProdContainer{
       margin-bottom: 5vmax;
       padding-bottom: 5vmax;
+    }
+    .products{
+      left: 10vmax;
+      width: 40vmax;
     }
     .filterBox {
       width: 20vmax;
@@ -139,3 +163,17 @@
     }
   }
   
+  @media screen and (max-width: 500px) {
+    .products{
+      left: 2vmax;
+      width: 30vmax;
+    }
+  }
+  @media screen and (max-width: 350px) {
+    .products{
+      left: 4vmax;
+      width:30vmax;
+      padding: 0;
+
+    }
+  }

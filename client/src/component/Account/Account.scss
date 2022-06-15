@@ -40,8 +40,8 @@
             text-decoration: none;
             font-size: 1.3rem;
             margin-top: 2vmax;
-            height: 3vmax;
-            width: 10vmax;
+            height: 40px;
+            width: 140px;
             border-radius: 10px;
             display: flex;
         align-items: center;
@@ -79,8 +79,8 @@
 
             a{
                 text-decoration: none;
-                height: 3vmax;
-            width: 10vmax;
+                height: 40px;
+            width: 140px;
             border-radius: 10px;
             display: flex;
         align-items: center;
@@ -91,4 +91,64 @@
         }
     }
     
+}
+
+
+@media screen and (max-width: 940px) {
+.profileContainer{
+    flex-direction: column;
+    .Data{
+        width: 70vw;
+
+        div{
+            width: 70%;
+        }    
+        .proLinek{
+            a{
+                margin-right: 1vmax;
+            }
+        }
+    }
+    .Name{
+        border-right: none;
+
+    }
+}
+}
+
+
+@media screen and (max-width: 600px) {
+.profileContainer{
+    flex-direction: column;
+    .Data{
+        width: 70vw;
+
+        div{
+            width:90%;
+        }    
+        .proLinek{
+            width: 100%;
+            a{
+                margin-right: 1vmax;
+            }
+        }
+    }
+    .Name{
+        border-right: none;
+        img{
+            height: 200px;
+            width: 210px;
+        }
+    }
+}
+}
+
+@media screen and (max-width: 600px) {
+    .Data{
+        width: 90vw;
+        div{
+            font-size: 2vmax;
+            width: 100%;
+        }    
+    }
 }

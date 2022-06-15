@@ -107,8 +107,22 @@
   .checkOutBtn button{
     padding: 1vmax;
     font-size: 1.1rem;
+  }
+  .cartPage{
+    padding-bottom: 4vmax;
+  }
 }
-.cartPage{
-  padding-bottom: 4vmax;
-}
+@media screen and (max-width: 620px) {
+  .cartPage .cartHeadar,
+  .cartPage .cartContainer {
+    width: 98%;
+  }
+  .CartCont{
+    min-width: 98%;
+  }
+ 
+  .cartGrossProfitBox {
+    height: 15vmax;
+    font-size: 1.1rem;
+  }
 }

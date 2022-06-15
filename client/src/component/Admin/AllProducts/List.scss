@@ -7,8 +7,9 @@
     display: flex;
     flex-direction: column;
     height: 100vh;
-    font-size: 1.1rem;
+    // font-size: 1.1rem;
     overflow: hidden;
+    z-index: 0;
   }
   
   #productListHeading {
@@ -20,6 +21,12 @@
     margin: 2rem;
     text-align: center;
   }
+  .MuiDataGrid-root .MuiDataGrid-columnHeaderWrapper,
+    .MuiDataGrid-root .MuiDataGrid-columnsContainer {
+    padding-left: 0vmax;
+    width: auto;
+  }
+  
   
   .productListTable {
     // background-color: white;
@@ -41,41 +48,102 @@
     align-items: center;
     justify-content: center;
   }
-  
-  .productListTable div {
-    // font: 300 1vmax "Roboto";
-    // color: rgba(0, 0, 0, 0.678);
-  
-    border: none !important;
-  }
-  
-  .productListTable a{
-    margin-top: .8vmax;
-  }
-  .productListTable a,
-  .productListTable button {
-    color: rgba(0, 0, 0, 0.527);
-    transition: all 0.5s;
-  }
-  .MuiDataGrid-row {
-    background-color: #fff3;
-    // margin: .5vmax 0;
-  }
-  
-  .productListTable a:hover{
-    color: #1577f7;
-  }
-  .productListTable button:hover {
-    color: rgb(236, 30, 30);
-  }
-  
   .MuiDataGrid-columnHeader div {
-    color: rgb(255, 255, 255);
+    font-size: 1.2vmax;
+  }
+  .MuiDataGrid-columnHeader div {
+    color: white;
+    font: 500 1.2vmax "Roboto" !important;
+  }
+  .MuiDataGrid-columnHeader div {
+    color: white;
+    font: 500 1.2vmax "Roboto" !important;
+  }
+  @media screen and (max-width: 1200px) {
+  .MuiDataGrid-columnHeader div {
+    color: white;
+    font: 500 1.8vmax "Roboto" !important;
   }
   
-  @media screen and (max-width: 600px) {
-    .productListTable div {
-      font: 300 4vw "Roboto";
+
+  }
+  @media screen and (max-width: 1000px) {
+    .MuiDataGrid-columnHeader div {
+      font-size: 1.9vmax;
+    }
+    .MuiDataGrid-root .MuiDataGrid-columnHeaderWrapper,
+    .MuiDataGrid-root .MuiDataGrid-columnsContainer {
+      padding-left: 3vmax;
+      width: auto;
+    }
+    
+  }
+  @media screen and (max-width: 900px) {
+    
+    .MuiDataGrid-root .MuiDataGrid-columnHeaderWrapper,
+    .MuiDataGrid-root .MuiDataGrid-columnsContainer {
+      padding-left: 5vmax;
+      width: auto;
+    }
+    .productListContainer{
+      margin-left: -11vmax;
+      min-width: 400px;
     }
   }
-  
+  @media screen and (max-width: 800px) {
+    
+    .MuiDataGrid-root .MuiDataGrid-columnHeaderWrapper,
+    .MuiDataGrid-root .MuiDataGrid-columnsContainer {
+      padding-left: 10vmax;
+    }
+  }
+
+  @media screen and (max-width: 750px) {
+    
+    .MuiDataGrid-columnHeader div {
+      font-size: 2.1vmax;
+    }
+    .MuiDataGrid-root .MuiDataGrid-columnHeaderWrapper,
+    .MuiDataGrid-root .MuiDataGrid-columnsContainer {
+      padding-left: 13vmax;
+    }
+    
+    .MuiDataGrid-columnHeader div {
+      color: white;
+      font: 500 2.2vmax "Roboto" !important;
+    }
+  }
+  @media screen and (max-width: 700px) {
+    
+    .MuiDataGrid-root .MuiDataGrid-columnHeaderWrapper,
+    .MuiDataGrid-root .MuiDataGrid-columnsContainer {
+      padding-left: 19vmax;
+
+    }
+   
+  }
+  @media screen and (max-width: 520px) {
+    
+    .MuiDataGrid-root .MuiDataGrid-columnHeaderWrapper,
+    .MuiDataGrid-root .MuiDataGrid-columnsContainer {
+      padding-left: 21vmax;
+
+    }
+   
+  }
+  @media screen and (max-width: 470px) {
+    
+    .MuiDataGrid-root .MuiDataGrid-columnHeaderWrapper,
+    .MuiDataGrid-root .MuiDataGrid-columnsContainer {
+      padding-left: 25vmax;
+
+    }
+  }
+  @media screen and (max-width: 380px) {
+    
+    .MuiDataGrid-root .MuiDataGrid-columnHeaderWrapper,
+    .MuiDataGrid-root .MuiDataGrid-columnsContainer {
+      padding-left: 25vmax;
+
+    }
+  }

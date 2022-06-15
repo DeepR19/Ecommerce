@@ -31,16 +31,16 @@ export default function Header() {
 
         <div className="headerLinks">
           <ul>
-            <Link to="/" title='home'>
+            <Link to="/">
                 <li>Home</li>
             </Link>
-            <Link to="/products" title='products'>
+            <Link to="/products">
                 <li>Products</li>
             </Link>
-            <Link to="/about" title='about'>
+            <Link to="/about">
                 <li>About</li>
             </Link>
-            <Link to="/contact" title='contact'>
+            <Link to="/contact">
                 <li>Contact</li>
             </Link>
           </ul>

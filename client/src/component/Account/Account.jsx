@@ -26,10 +26,10 @@ export default function Account({user}) {
     <>
         <Additional title={`${user.user.name}'s Profile`}/>
        
-           <h1 className='acxPor'>My Profile</h1>
        <div className="profileContainer">
            
          <div className='Name'>
+           <h1 className='acxPor'>My Profile</h1>
            <img src={user.user.avatar.url} alt={user.user.name} />
            <Link to="/me/update">Edit Profile</Link>
          </div>
