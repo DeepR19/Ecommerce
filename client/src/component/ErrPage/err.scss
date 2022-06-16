@@ -1,0 +1,14 @@
+.err-page{
+    height: 100vh;
+    width: 100%;
+    background: url("../../assets/404.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 600px) {
+    .err-page{
+        background-size: 80vh 80vw;
+    }
+}

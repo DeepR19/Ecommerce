@@ -9,6 +9,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  transition: .3s;
 
   h1{
     padding-bottom: 1vmax;
@@ -165,6 +166,56 @@
     }
     .signupBtn:hover{
       background: #eb4629;
+    }
+  }
+}
+
+
+@media screen and (max-width: 970px) {
+  .loginContainer {
+    width: 43vw;
+    
+    form{
+      .LoginLink1 {
+
+        width: 20vw;
+      }
+      a{
+        font-size: 1.2vmax;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 630px) {
+
+  .signupContainer{
+    width: 75vmax;
+
+    form{
+      a{
+        font-size: 1.5vmax;
+      }
+      .signupBtn {
+        height: 4.5vmax;
+        width: 19vmax;
+      }
+      div{
+        margin-bottom: .5vmax;
+      }
+    }
+  }
+  .loginContainer {
+    width: 83vw;
+    
+    form{
+      .LoginLink1 {
+
+        width: 51vw;
+      }
+      a{
+        font-size: 1.5vmax;
+      }
     }
   }
 }

@@ -113,10 +113,14 @@
   }
 }
 @media screen and (max-width: 620px) {
-  .cartPage .cartHeadar,
-  .cartPage .cartContainer {
-    width: 98%;
+  .cartPage .cartHeadar{
+    width: 142%;
+    height: 50px;
   }
+  .cartPage .cartContainer {
+    width: 110%;
+  }
+
   .CartCont{
     min-width: 98%;
   }
