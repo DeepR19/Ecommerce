@@ -2,6 +2,8 @@
 // redux dev-tools
 // react dev-tools
 
+
+
 .container {
     display: flex;
     margin: 2vmax auto;
@@ -25,6 +27,15 @@
     color: white;
     margin-bottom: 10vmax;
     text-shadow: 1px 1px 1px #0007;
+  }
+  .homeContainer::after{
+    position: absolute;
+    content: "";
+    margin-top: 57vmax;
+    height: 10vmax;
+    width: 100vmax;
+    clip-path: polygon(0% 100%, 100% 0%, 100% 100%, 0% 100%);
+    background-color: #fff;
   }
   
   .homeContainer > h1 {

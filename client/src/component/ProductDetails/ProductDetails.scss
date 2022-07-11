@@ -21,6 +21,7 @@
       align-items: center;
       padding: 2vmax;
       box-sizing: border-box;
+      min-width: 500px;
     }
 
     .CarouselImage {
@@ -140,4 +141,47 @@
 }
 .greenColor{
   color:#05b439;
+}
+
+@media screen and (max-width: 1000px) {
+  .ProductDetails .detailsBlock-3 .detailsBlock-3-1-1 {
+    button {
+    height: 2.5vmax;
+  }  
+  input {
+    width: 5vmax;
+}}}
+
+
+@media screen and (max-width: 800px) {
+  .ProductDetails .detailsBlock-3 .detailsBlock-3-1 button {
+    width: 19vmax;
+    height: 6vmax;
+  }
+  .ProductDetails .detailsBlock-3 .detailsBlock-3-1-1 button {
+    height: 3vmax;
+    width: 5vmax;
+  }
+.ProductDetails{
+  flex-direction: column;
+  height: 140vmax;
+  div{
+    height: max-content;
+    width: 90%;
+  }
+  .PDIMG{
+    height: 50vmax;
+    width: 80%;
+    border: 2px solid #0003;
+
+  }
+  .PD2{
+    border-left: none;
+    border-top: 2px solid #0002;
+    padding-top: 2vmax;
+  }
+}
+}
+@media screen and (max-width: 650px) {
+  
 }

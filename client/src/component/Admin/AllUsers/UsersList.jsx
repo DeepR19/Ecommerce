@@ -6,6 +6,7 @@ import {Link, useNavigate} from "react-router-dom";
 import {Button} from "@material-ui/core";
 import Additional from "../../layout/Additional";
 import SideBar from "../SideBar"
+import Box from "@mui/material/Box"
 
 import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
@@ -55,7 +56,7 @@ useEffect(()=>{
       field: "id",
       headerName: "UserID",
       minWidth: 250,
-      type: "number",
+      // type: "number",/
       flex: .7
     },
     {
@@ -127,15 +128,17 @@ useEffect(()=>{
 
           <div className="productListContainer">
             <h1 className="productListHeading">All Users</h1>
+            <Box sx={{ height: 400, width: '78vw' }} className='Box1111'>
 
             <DataGrid
               rows={rows}
               columns={columns}
               pageSize={10}
               disableSelectionOnClick
-              className='productListTable1'
-              autoHeight
+              // className='productListTable1'
+              // autoHeight
             ></DataGrid>
+            </Box>
           </div>
         </div>
     </>

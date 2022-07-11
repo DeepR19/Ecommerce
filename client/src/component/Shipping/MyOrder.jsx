@@ -6,8 +6,10 @@ import Loading from '../layout/Loading/Loading';
 import { Link } from 'react-router-dom';
 import Additional from '../layout/Additional';
 import LaunchIcon from "@material-ui/icons/Launch"
+import Box from "@mui/material/Box"
 import { useEffect } from 'react';
 import "./Myorder.scss"
+import "../Admin/AllProducts/List.scss"
 
 export default function MyOrder() {
   const dispatch = useDispatch();
@@ -86,15 +88,15 @@ export default function MyOrder() {
 
         {loading ? <Loading/> :(
           <div className="myOrderPage">
+          <Box sx={{ height: 400, width: '78vw' }} className='Box1111'>
+
             <DataGrid
               rows={rows}
               columns={columns}
               pageSize={10}
               disabledSelectionOnClick
-              className="myOrderTable"
-              autoHeight
             />
-
+      </Box>
             <h3>{user.name}</h3>
           </div>
         )}

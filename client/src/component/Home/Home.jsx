@@ -13,6 +13,7 @@ import Loading from '../layout/Loading/Loading';
 // import {useAlert} from "react-alert";
 
 export default function Home() {
+ 
 
   // const alert = userAlert();
 
@@ -32,6 +33,7 @@ export default function Home() {
   // error in dependency
   return (
     <> 
+      
       { loading? 
           <Loading/>:(
           <>
@@ -39,6 +41,8 @@ export default function Home() {
             <Additional title="DeepR19 | Ecommerce"/>
 
             <div className="homeContainer">
+
+            
               <p>Welcome to Ecommerce</p>
 
               <h1>Find Amazing products Below</h1>

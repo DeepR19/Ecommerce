@@ -10,9 +10,9 @@
     transition: all 0.5s;
     padding-bottom: 0.5vmax;
     // background-color: #fafafa;
-    background: linear-gradient(35deg,#fff,#eee);
+    // background: linear-gradient(35deg,#fff,#eee);
     border-radius: 10px;
-  box-shadow: 1px 1px 5px #0003;
+  box-shadow: 1px 1px 5px #0001;
 
 
     img {
@@ -54,7 +54,7 @@
   overflow: hidden;
 }
 .productCard:hover {
-  box-shadow: 0 0 5px rgba(15, 15, 15, 0.404);
+  box-shadow: 0 0 5px #0f0f0f41;
   background-color: #fff;
   transform: translateY(-1vmax) scale(1.1);
 }

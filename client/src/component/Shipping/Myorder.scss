@@ -47,13 +47,22 @@
   
   .MuiDataGrid-columnHeader div {
     color: rgb(255, 255, 255);
-    font: 500 1.1vmax "Roboto" !important;
+    font: 500 1.2vmax "Roboto" !important;
   }
   
   .MuiDataGrid-iconSeparator {
     display: none !important;
   }
-  
+  .MuiDataGrid-main
+  {
+    width: 100px;
+  }
+  @media screen and (max-width: 900px) {
+    .MuiDataGrid-columnHeader div {
+      color: rgb(255, 255, 255);
+      font: 500 1.8vmax "Roboto" !important;
+    }
+  }
   @media screen and (max-width: 600px) {
     .myOrdersPage {
       padding: 0;
@@ -72,7 +81,7 @@
     .MuiDataGrid-columnHeader {
       padding: 20px !important;
     }
-  
+    
     
   }
   

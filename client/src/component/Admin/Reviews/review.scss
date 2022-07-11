@@ -7,7 +7,7 @@
   }
   
   .productReviewsForm {
-    width: 20rem;
+    width: 200px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -46,7 +46,10 @@
     color: rgba(0, 0, 0, 0.623);
   }
  
-  
+  .ReForm{
+    margin-top: 2vmax;
+    height: 60%;
+  }
   
   @media screen and (max-width: 600px) {
     .productReviewsContainer {

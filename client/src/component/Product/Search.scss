@@ -39,34 +39,34 @@
     background-color: rgb(55, 97, 214);
   }
 
-  .GBN{
-    position: absolute;
-    top: 2vmax;
-    left: 2vmax;
-    z-index: 1000;
-    text-decoration: none;
-    height: 3vmax;
-    width: 7vmax;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    background-color:rgb(55, 97, 214) ;
-    border-radius: 10px;
-    box-shadow: 2px 2px 7px #0005;
-  }
+  // .GBN{
+  //   position: absolute;
+  //   top: 2vmax;
+  //   left: 2vmax;
+  //   z-index: 1000;
+  //   text-decoration: none;
+  //   height: 3vmax;
+  //   width: 7vmax;
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  //   color: #fff;
+  //   background-color:rgb(55, 97, 214) ;
+  //   border-radius: 10px;
+  //   box-shadow: 2px 2px 7px #0005;
+  // }
   
   @media screen and (max-width: 600px) {
-    .searchBox >  .Syb {
-      width: 100%;
-      font: 300 4vw cursive;
-      height: 10%;
+    
+    
+    .searchBox > input[type="text"] {
+      font: 300 2vw "Roboto";
+      height: 6%;
     }
-  
     .searchBox >  .Syb{
-      height: 10%;
-      width: 30%;
-      font: 300 4vw "Roboto";
+      height: 6%;
+      width: 20%;
+      font: 300 2vw "Roboto";
     }
   }
   

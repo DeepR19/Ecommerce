@@ -101,7 +101,7 @@ export default function ProductDetails({match}) {
             <Additional title={`DeepR19 | Product Details`}/>
 
             <div className="ProductDetails">
-            <div>
+            <div className='PDIMG'>
               <Carousel>
                 {product.images &&
                   product.images.map((item, i) => (

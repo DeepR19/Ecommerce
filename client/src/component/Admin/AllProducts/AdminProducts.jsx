@@ -7,6 +7,8 @@ import {Button} from "@material-ui/core";
 import Additional from "../../layout/Additional";
 import SideBar from "../SideBar"
 
+import Box from "@mui/material/Box"
+
 import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
 import {deleteProduct } from "../../../Actions/productAction";
@@ -48,7 +50,6 @@ export default function AdminProducts() {
       deleteProduct(id)
     )
   }
-
   const columns = [
     {
       field: "id",
@@ -67,7 +68,12 @@ export default function AdminProducts() {
       headerName: "Stock",
       minWidth: 150,
       flex: .3,
-      type: "number"
+      type: "number",
+      cellClassName: params =>{
+        return params.getValue(params.id , "stock") >0?
+        "greenColor":
+        "redColor"
+      }
     },
     {
       field: "price",
@@ -122,14 +128,17 @@ export default function AdminProducts() {
           <div className="productListContainer">
             <h1 className="productListHeading">All Products</h1>
 
+          <Box sx={{ height: 400, width: '78vw' }} className='Box1111'>
+
             <DataGrid
               rows={rows}
               columns={columns}
               pageSize={10}
               disableSelectionOnClick
-              className='productListTable'
-              autoHeight
-            ></DataGrid>
+              // className='productListTable'
+              // autoHeight
+              />
+              </Box>
           </div>
         </div>
     </>

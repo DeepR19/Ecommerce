@@ -3,7 +3,7 @@
     width: 78vw;
     left: 20vmax;
     min-width: 80vw;
-    border-left: 1px solid rgba(0, 0, 0, 0.158);
+    // border-left: 1px solid rgba(0, 0, 0, 0.158);
     display: flex;
     flex-direction: column;
     height: 100vh;
@@ -21,129 +21,158 @@
     margin: 2rem;
     text-align: center;
   }
-  .MuiDataGrid-root .MuiDataGrid-columnHeaderWrapper,
-    .MuiDataGrid-root .MuiDataGrid-columnsContainer {
-    padding-left: 0vmax;
-    width: auto;
-  }
+ .Box1111{
+   border: 2px solid #0004;
+
+
+   .MuiDataGrid-main{
+     border: 2px solid #0004;
+     width: 100%;
+   }
+   .MuiDataGrid-columnsContainer{
+     display: flex;
+    //  align-items: flex-start;
+     justify-content: center;
+     background-color: red;
+   }
+   .MuiDataGrid-row{
+     a{
+       display: flex;
+       justify-content: center;
+       color: blue;
+     }
+     button:hover span{
+      color: red;
+      background: none;
+     }
+   }
+ }
+@media screen and (max-width: 950px) {
+.productListContainer{
+  left: 10vmax;
+
+}
+}
   
+  // .productListTable {
+  //   // background-color: white;
+  //   border: none !important;
+  // }
+  // .MuiDataGrid-windowContainer{
+  //   width: 1000px;
+  //   overflow-x: scroll;
+  // }
+
+  // .MuiDataGrid-root .MuiDataGrid-main{
+  //   min-width: 80vmax;
+  // }
+  // .MuiDataGrid-cell{
+  //   color: #000;
+  // }
+  // .MuiDataGrid-columnsContainer{
+  //   z-index: 10;
+  //   background-color: red;
+  //   display: flex;
+  //   min-width: 100vmax;
+  //   align-items: center;
+  //   justify-content: center;
+  // }
+  // .MuiDataGrid-columnHeader div {
+  //   font-size: 1.2vmax;
+  // }
+  // .MuiDataGrid-columnHeader div {
+  //   color: white;
+  //   font: 500 1.2vmax "Roboto" !important;
+  // }
+  // .MuiDataGrid-columnHeader div {
+  //   color: white;
+  //   font: 500 1.2vmax "Roboto" !important;
+  // }
+  // @media screen and (max-width: 1200px) {
+  // .MuiDataGrid-columnHeader div {
+  //   color: white;
+  //   font: 500 1.8vmax "Roboto" !important;
+  // }
   
-  .productListTable {
-    // background-color: white;
 
-    border: none !important;
-  }
-
-  .MuiDataGrid-root .MuiDataGrid-main{
-    min-width: 80vw;
-  }
-  .MuiDataGrid-cell{
-    color: #000;
-  }
-  .MuiDataGrid-columnsContainer{
-    z-index: 10;
-    background-color: red;
-    display: flex;
-    min-width: 100vw;
-    align-items: center;
-    justify-content: center;
-  }
-  .MuiDataGrid-columnHeader div {
-    font-size: 1.2vmax;
-  }
-  .MuiDataGrid-columnHeader div {
-    color: white;
-    font: 500 1.2vmax "Roboto" !important;
-  }
-  .MuiDataGrid-columnHeader div {
-    color: white;
-    font: 500 1.2vmax "Roboto" !important;
-  }
-  @media screen and (max-width: 1200px) {
-  .MuiDataGrid-columnHeader div {
-    color: white;
-    font: 500 1.8vmax "Roboto" !important;
-  }
   
+  // @media screen and (max-width: 1000px) {
+  //   .MuiDataGrid-columnHeader div {
+  //     font-size: 1.9vmax;
+  //   }
+  //   .MuiDataGrid-root .MuiDataGrid-columnHeaderWrapper,
+  //   .MuiDataGrid-root .MuiDataGrid-columnsContainer {
+  //     padding-left: 3vmax;
+  //     width: auto;
+  //   }
+    
+  // }
+  // @media screen and (max-width: 900px) {
+    
+  //   .MuiDataGrid-root .MuiDataGrid-columnHeaderWrapper,
+  //   .MuiDataGrid-root .MuiDataGrid-columnsContainer {
+  //     padding-left: 5vmax;
+  //     width: auto;
+  //   }
+  //   .productListContainer{
+  //     margin-left: -11vmax;
+  //     min-width: 400px;
+  //   }
+  // }
+  // @media screen and (max-width: 800px) {
+    
+  //   .MuiDataGrid-root .MuiDataGrid-columnHeaderWrapper,
+  //   .MuiDataGrid-root .MuiDataGrid-columnsContainer {
+  //     padding-left: 10vmax;
+  //   }
+  // }
 
-  }
-  @media screen and (max-width: 1000px) {
-    .MuiDataGrid-columnHeader div {
-      font-size: 1.9vmax;
-    }
-    .MuiDataGrid-root .MuiDataGrid-columnHeaderWrapper,
-    .MuiDataGrid-root .MuiDataGrid-columnsContainer {
-      padding-left: 3vmax;
-      width: auto;
-    }
+  // @media screen and (max-width: 750px) {
     
-  }
-  @media screen and (max-width: 900px) {
+  //   .MuiDataGrid-columnHeader div {
+  //     font-size: 1.1vmax;
+  //   }
+  //   .MuiDataGrid-root .MuiDataGrid-columnHeaderWrapper,
+  //   .MuiDataGrid-root .MuiDataGrid-columnsContainer {
+  //     padding-left: 13vmax;
+  //   }
     
-    .MuiDataGrid-root .MuiDataGrid-columnHeaderWrapper,
-    .MuiDataGrid-root .MuiDataGrid-columnsContainer {
-      padding-left: 5vmax;
-      width: auto;
-    }
-    .productListContainer{
-      margin-left: -11vmax;
-      min-width: 400px;
-    }
-  }
-  @media screen and (max-width: 800px) {
+  //   .MuiDataGrid-columnHeader div {
+  //     color: white;
+  //     font: 500 2.2vmax "Roboto" !important;
+  //   }
+  // }
+  // @media screen and (max-width: 700px) {
     
-    .MuiDataGrid-root .MuiDataGrid-columnHeaderWrapper,
-    .MuiDataGrid-root .MuiDataGrid-columnsContainer {
-      padding-left: 10vmax;
-    }
-  }
+  //   .MuiDataGrid-root .MuiDataGrid-columnHeaderWrapper,
+  //   .MuiDataGrid-root .MuiDataGrid-columnsContainer {
+  //     padding-left: 19vmax;
 
-  @media screen and (max-width: 750px) {
-    
-    .MuiDataGrid-columnHeader div {
-      font-size: 2.1vmax;
-    }
-    .MuiDataGrid-root .MuiDataGrid-columnHeaderWrapper,
-    .MuiDataGrid-root .MuiDataGrid-columnsContainer {
-      padding-left: 13vmax;
-    }
-    
-    .MuiDataGrid-columnHeader div {
-      color: white;
-      font: 500 2.2vmax "Roboto" !important;
-    }
-  }
-  @media screen and (max-width: 700px) {
-    
-    .MuiDataGrid-root .MuiDataGrid-columnHeaderWrapper,
-    .MuiDataGrid-root .MuiDataGrid-columnsContainer {
-      padding-left: 19vmax;
-
-    }
+  //   }
    
-  }
-  @media screen and (max-width: 520px) {
+  // }
+  // @media screen and (max-width: 520px) {
     
-    .MuiDataGrid-root .MuiDataGrid-columnHeaderWrapper,
-    .MuiDataGrid-root .MuiDataGrid-columnsContainer {
-      padding-left: 21vmax;
+  //   .MuiDataGrid-root .MuiDataGrid-columnHeaderWrapper,
+  //   .MuiDataGrid-root .MuiDataGrid-columnsContainer {
+  //     padding-left: 21vmax;
 
-    }
+  //   }
    
-  }
-  @media screen and (max-width: 470px) {
+  // }
+  // @media screen and (max-width: 470px) {
     
-    .MuiDataGrid-root .MuiDataGrid-columnHeaderWrapper,
-    .MuiDataGrid-root .MuiDataGrid-columnsContainer {
-      padding-left: 25vmax;
+  //   .MuiDataGrid-root .MuiDataGrid-columnHeaderWrapper,
+  //   .MuiDataGrid-root .MuiDataGrid-columnsContainer {
+  //     padding-left: 25vmax;
 
-    }
-  }
-  @media screen and (max-width: 380px) {
+  //   }
+  // }
+  // @media screen and (max-width: 380px) {
     
-    .MuiDataGrid-root .MuiDataGrid-columnHeaderWrapper,
-    .MuiDataGrid-root .MuiDataGrid-columnsContainer {
-      padding-left: 25vmax;
+  //   .MuiDataGrid-root .MuiDataGrid-columnHeaderWrapper,
+  //   .MuiDataGrid-root .MuiDataGrid-columnsContainer {
+  //     padding-left: 25vmax;
 
-    }
-  }
+  //   }
+  // }

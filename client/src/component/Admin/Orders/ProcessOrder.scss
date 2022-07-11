@@ -1,0 +1,35 @@
+.new1ProductContainer{
+    // background-color: red;
+    margin-left: 25vmax;
+    font-size: 1.2rem;
+    
+    .order1DetailsContainerBox{
+        font-size: .8rem;
+        div{
+        display: flex;
+            align-items: center;
+            p{
+                font-weight: bold;
+                font-size: .8rem;
+            }
+            span{
+                margin-left: .5rem;
+            }
+        }
+    }
+    .confirmCartItemContainer{
+        div{
+            font-size: 1rem;
+            img,
+            span{
+                margin-right: 2vmax;
+            }
+        }
+    }
+}
+
+.createProductForm{
+    h1{
+        font-size: 1.5rem;
+    }
+}

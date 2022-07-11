@@ -9,6 +9,7 @@ import Loading from '../../layout/Loading/Loading';
 import AccountTreeIcon from "@material-ui/icons/AccountTree"
 import { Button } from '@material-ui/core';
 import { Update_Order_Reset } from '../../../Constants/orderConstant';
+import "./ProcessOrder.scss";
 
 export default function ProcessOrder() {
 
@@ -89,7 +90,7 @@ export default function ProcessOrder() {
         <div className="dashboard">
           <SideBar/>
 
-          <div className="newProductContainer">
+          <div className="new1ProductContainer">
                 {
                     loading ? <Loading/>:
                     order?
@@ -101,7 +102,7 @@ export default function ProcessOrder() {
                 <h3>Shipping Info</h3>
 
                 <div className="shoppingAreaBox">
-                    <div className="orderDetailsContainerBox">
+                    <div className="order1DetailsContainerBox">
                         <div>
                             <p>Name: </p>
                             <span>{order.user && order.user.name}</span>
@@ -127,7 +128,7 @@ export default function ProcessOrder() {
 
                 <h3>Payment</h3>
 
-                <div className="orderDetailsContainerBox">
+                <div className="order1DetailsContainerBox">
                     <div>
                         <p
                             className={
@@ -151,7 +152,7 @@ export default function ProcessOrder() {
                 </div>
 
                 <h3>Order Status</h3>
-                <div className="orderDetailsContainerBox">
+                <div className="order1DetailsContainerBox">
                     <div>
                         <p className={
                                 order.paymentInfo && 

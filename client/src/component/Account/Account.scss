@@ -1,10 +1,11 @@
 .acxPor{
-    position: absolute;
+    // position: absolute;
     // margin-top: 10vmax;
-    top: 10vmax;
-    left: 65vmax;
+    // top: 10vmax;
+    // left: 65vmax;
     color: #0007;
     padding-bottom: 1vmax;
+    width: 100%;
     border-bottom: 2px solid #0002;
     z-index: 10;
 }
@@ -97,6 +98,7 @@
 @media screen and (max-width: 940px) {
 .profileContainer{
     flex-direction: column;
+    padding-bottom: 5vmax;
     .Data{
         width: 70vw;
 
@@ -106,7 +108,10 @@
         .proLinek{
             a{
                 margin-right: 1vmax;
+                width: fit-content;
+                padding: 1vmax 2vmax;
             }
+            
         }
     }
     .Name{
@@ -142,8 +147,15 @@
     }
 }
 }
+.MuiFab-primary {
+    top: 8vmax;
+}
 
 @media screen and (max-width: 600px) {
+    // .acxPor{
+    //     top: 8vmax;
+    //     left: 25vmax;
+    // }
     .Data{
         width: 90vw;
         div{

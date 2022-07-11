@@ -11,7 +11,24 @@ import { loadUser } from '../../../Actions/userAction';
 import Img from "../../../assets/logo.PNG"
 
 export default function Header() {
+  let sidu = document.querySelectorAll(".headerContainer.active .headerLinks ul li");
+  let dov = document.querySelector('.hamBurderHome');
+  const ham = ()=>{
+    console.log( document.querySelector('.headerContainer'))
+      document.querySelector(".headerContainer").classList.toggle("active")
+      dov.classList.toggle("active")
+  }
 
+  window.addEventListener("resize",()=>{
+      if(window.outerWidth > 1200){
+          document.querySelector(".headerContainer").classList.remove("active")
+          dov.classList.remove("active")
+
+      }
+
+  });
+  
+  
   const {isAuthenticated} = useSelector(state => state.user);
   const dispatch = useDispatch()
 
@@ -24,7 +41,16 @@ export default function Header() {
   
 
   return (
+    <>
+      {/* <div className="hamBurderHome"> */}
+      <div className="hamBurderHome" onClick={ham}>
+        <li></li>
+        <li></li>
+        <li></li>
+      </div>
     <div className='headerContainer'>
+      
+
         <div className="headerImg">
           <img src={Img} alt="" />
         </div>
@@ -53,12 +79,13 @@ export default function Header() {
           <Link to="/cart">
               <ShopIcon/>
           </Link>
-        </div>
         {
           !isAuthenticated && <Link to="/login" className='loginPin'>
             <AcIcon/>
           </Link>
         }
+        </div>
     </div>
+    </>
   )
 }

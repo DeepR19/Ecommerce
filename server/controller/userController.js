@@ -32,7 +32,7 @@ exports.registerUser = AsyncErr( async(req, res, next)=>{
     // res and save data in cookie
     sendToken(user, 200, res);
 
-
+    console.log(user)
 });
 
 
