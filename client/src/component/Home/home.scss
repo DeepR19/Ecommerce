@@ -122,5 +122,16 @@
     // background-size: contain;
     background-position: top;
     height: 100vmax;
+
+    a{
+      button{
+        width: 18vmax;
+      }
+    }
+  }
+  .homeContainer::after {
+    position: absolute;
+    content: "";
+    margin-top: 91vmax;
   }
 }

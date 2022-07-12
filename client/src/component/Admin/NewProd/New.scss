@@ -117,7 +117,10 @@
     }
     .createProductForm {
       padding: 5vmax;
-    }
+       
+      margin-left: -2vmax;
+      width: 26vh;
+  }
   
     .createProductForm > div > input,
     .createProductForm > div > select,

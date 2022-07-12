@@ -170,6 +170,7 @@
         transform: translateY(0vmax);
     }
     .headerContainer{
+        
         width: 0%;
         *{
             opacity: 0;
@@ -179,6 +180,9 @@
     .hamBurderHome{
         visibility: visible;
         pointer-events: all;
+        top: 2vmax;
+        right: revert;
+    /* right: 7rem;
         // top: 2vmax;
         // right: 27vmax;
         /* background-color: red; */

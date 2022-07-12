@@ -1,3 +1,37 @@
+.NoItem{
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 1.5vmax;
+
+  .empty{
+    font-size: 15vmax;
+    color: #c41d07;
+  }
+  p{
+    font-size: 3vmax;
+  }
+
+  button{
+    width: 40vmax;
+    height: 5vmax;
+    background-color: #c41d07;
+    color: #fff;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px #0003, inset 10px 12px 10px #fff5;
+  }
+  button:hover{
+    background: #e05522;
+  }
+}
+
+
 .cartPage{
   height: 80vh;
   width: 100%;
@@ -7,6 +41,7 @@
   justify-content:center;
   align-items: center;
   flex-direction: column;
+  overflow-x: scroll;
 
   h1{
     color: #0006;
@@ -39,7 +74,7 @@
         margin-top: 3vmax;
 
         input{
-          width: 1.5vmax;
+          width: 4.5vmax;
           padding-left: 1vmax;
           border: none;
         }

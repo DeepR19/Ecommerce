@@ -4,10 +4,7 @@
   justify-content: center;
   flex-direction: column;
   text-align: center;
-  /* background: url("./assets/45.png"); */
-  background-position: center;
-  background-repeat: round;
-  background-size: contain;
+ 
 }
 
 
@@ -17,4 +14,13 @@
     background-position: top ;
     background-repeat: no-repeat;
   }
+}
+@media screen and (max-width: 700px){
+  .SpeedDialtooltipexample-actions{
+    margin-top: 4vmax;
+  }
+  .MuiStepper-alternativeLabel {
+    align-items: flex-start;
+    margin-top: 13vmax;
+    width: 90%;}
 }

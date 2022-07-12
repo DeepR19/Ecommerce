@@ -164,6 +164,9 @@
   }
   
   @media screen and (max-width: 500px) {
+    .ProdContainer{
+      margin-top: 8vmax;
+    }
     .products{
       left: 2vmax;
       width: 30vmax;

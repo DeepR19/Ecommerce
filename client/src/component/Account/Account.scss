@@ -147,15 +147,19 @@
     }
 }
 }
-.MuiFab-primary {
-    top: 8vmax;
-}
 
+
+@media screen and (max-width: 870px) {
+    .MuiFab-primary {
+        top: 8vmax;
+    }
+
+}
 @media screen and (max-width: 600px) {
     // .acxPor{
-    //     top: 8vmax;
-    //     left: 25vmax;
-    // }
+        //     top: 8vmax;
+        //     left: 25vmax;
+        // }
     .Data{
         width: 90vw;
         div{

@@ -88,7 +88,7 @@ export default function MyOrder() {
 
         {loading ? <Loading/> :(
           <div className="myOrderPage">
-          <Box sx={{ height: 400, width: '78vw' }} className='Box1111'>
+          <Box sx={{ height: 400, width: '78vw' }} className='Box1111 bix223'>
 
             <DataGrid
               rows={rows}

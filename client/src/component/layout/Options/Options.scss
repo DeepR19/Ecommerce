@@ -9,3 +9,10 @@
     height: 56px;
     border-radius: 100%;
   }
+  @media screen and (max-width: 500px) {
+
+  .speedDial {
+    top: 0;
+    right: revert;
+
+}}

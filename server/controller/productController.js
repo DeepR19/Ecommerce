@@ -205,12 +205,11 @@ exports.createProductReview = AsyncErr(async (req, res, next)=>{
     
     // req.user came from middleware
     // rev.user is the reciews field value  
-    const isReviewed = prod.reviews.find(
+    const isReviewed =prod.reviews.length>0? prod.reviews.find(
         rev => rev.user.toString() === req.user._id.toString()
-        )
+        ): false;
 
         
-        console.log(prod.review.user)
     if(isReviewed){
         // already exist user's review
         prod.reviews.forEach(rev => {
@@ -238,7 +237,6 @@ exports.createProductReview = AsyncErr(async (req, res, next)=>{
 
     }
     
-
 
     await prod.save({
         validateBeforeSave: false

@@ -11,10 +11,8 @@ import { loadUser } from '../../../Actions/userAction';
 import Img from "../../../assets/logo.PNG"
 
 export default function Header() {
-  let sidu = document.querySelectorAll(".headerContainer.active .headerLinks ul li");
   let dov = document.querySelector('.hamBurderHome');
   const ham = ()=>{
-    console.log( document.querySelector('.headerContainer'))
       document.querySelector(".headerContainer").classList.toggle("active")
       dov.classList.toggle("active")
   }
@@ -23,7 +21,6 @@ export default function Header() {
       if(window.outerWidth > 1200){
           document.querySelector(".headerContainer").classList.remove("active")
           dov.classList.remove("active")
-
       }
 
   });

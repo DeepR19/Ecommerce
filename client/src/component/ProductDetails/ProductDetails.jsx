@@ -40,7 +40,7 @@ export default function ProductDetails({match}) {
             "comment": comment,
             "productId": id
         };
-
+console.log(data)
         dispatch(newReview(data));
 
         setOpen(false);

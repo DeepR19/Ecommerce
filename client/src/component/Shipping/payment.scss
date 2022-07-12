@@ -75,7 +75,23 @@
     .paymentForm {
       width: 90%;
     }
+    .paymentContainer{
+    display: grid;
+    place-items: center;
+    background-color: white;
+    height: 47vh;
+    width: 41vmax;
+    margin: 2vmax;
+    padding-bottom: 5vmax;}
   
+    .paymentForm > h3 {
+      font: 400 3.7vmax "Roboto";
+      color: rgba(0, 0, 0, 0.753);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.13);
+      padding: 1vmax 0;
+      text-align: center;
+      width: 32vmax;}
+
     .paymentForm > p {
       font: 400 8vw "Roboto";
       padding: 4vw 0;
@@ -83,11 +99,16 @@
     }
   
     .paymentForm > div {
-      margin: 10vw 0;
+      margin: 4vw 0;
+      display: flex;
+      align-items: center;
+      margin: .2vmax 0;
+      width: 39vmax;
     }
   
     .paymentInput {
-      padding: 4vw 10vw;
+      padding: 6vw 10vw;
+        width: 100%;
     }
   
     .paymentForm > div > svg {
@@ -97,6 +118,7 @@
     .paymentFormBtn {
       font: 300 4vw "Roboto";
       padding: 4vw;
+      width: 24vmax;
     }
   }
   

@@ -1,9 +1,12 @@
 import React from 'react'
 import CartItem from "./CartItem";
 import "./Cart.scss";
+import {Link}from "react-router-dom";
+
 import {useSelector, useDispatch} from "react-redux";
 import {addItemToCart, RemoveFromCart} from "../../Actions/cartAction";
 import { useNavigate } from 'react-router-dom';
+import RemoveShoppingCartIcon from "@material-ui/icons/RemoveShoppingCartOutlined"
 import "./Cart.scss"
 
 export default function Cart() {
@@ -42,7 +45,15 @@ export default function Cart() {
 
   return (
     <>
-    {cartItems.length === 0 ? "No Item Present" :
+    {cartItems.length === 0 ? <div className='NoItem'>
+            <RemoveShoppingCartIcon className="empty"/>
+            <p>No Item Present</p> 
+            <Link to="/products">
+
+            <button>Go To Products</button>
+            </Link>
+        </div>
+        :
     <>
         <div className="cartPage">
     <h1>CART</h1>
