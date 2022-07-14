@@ -85,3 +85,20 @@
         }
     }
 }
+
+@media screen and (max-width: 1100px) {
+    .updateProfileContainer1 {
+        width: 65vmax;}
+        .updateProfileContainer1 form .updateProNameBox input, .updateProfileContainer1 form .updateProEmailBox input {
+           
+            width: 48vmax;}
+            
+}
+@media screen and (max-width: 500px) {
+    .updateProfileContainer1 {
+        width: 45vmax;}
+        .updateProfileContainer1 form .updateProNameBox input, .updateProfileContainer1 form .updateProEmailBox input{
+
+           
+            width: 35vmax;}
+}

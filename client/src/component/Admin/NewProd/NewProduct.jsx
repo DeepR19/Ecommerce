@@ -109,7 +109,7 @@ const createProdImagesChange = (e) =>{
 
           <div className="newProductContainer">
             <form
-              className='createProductForm'
+              className=' cre11 createProductForm '
               encType='multipart/form-data'
               onSubmit={submitHadler}
             >
@@ -164,6 +164,8 @@ const createProdImagesChange = (e) =>{
                   required
                   onChange={e=>setData({...data, Stock:e.target.value})} />
               </div>
+              
+              <blockquote>{">>>>> Not more than 2 images <<<<<"}</blockquote>
 
               <div id="createProductFormFile">
                 <input type="file" name="avatar" accept='image/*' onChange={createProdImagesChange} multiple/>

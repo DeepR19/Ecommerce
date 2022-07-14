@@ -13,11 +13,13 @@ exports.registerUser = AsyncErr( async(req, res, next)=>{
     const myCloud = await cloudinary.v2.uploader.upload(
         req.body.avatar ,
         {
-            folders: "avatars",
+            folder: "avatars",
             width: 150,
             crop: "scale"
         }
-    )
+    );
+   
+    console.log(req.body, myCloud)      
 
     const {name, email, password} = req.body;
 

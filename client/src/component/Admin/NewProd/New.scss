@@ -13,6 +13,7 @@
   .dash1{
     height: 120vmin;
   }
+  
   .newProductContainer h1 {
     color: rgba(0, 0, 0, 0.733);
     font: 300 2rem "Roboto";
@@ -49,6 +50,11 @@
     border-radius: 4px;
     font: 300 0.9rem cursive;
     outline: none;
+  }
+  .createProductForm > blockquote{
+    font-size: .8rem;
+    margin: 0;
+    color: #0007;
   }
   
   .createProductForm > div > svg {
@@ -161,5 +167,18 @@
       .createProductForm > button{
         width: 80%;
       }
-    }
+    }}
+    @media screen and (max-width: 490px){
+
+    .newProductContainer .createProductForm.cre11 {
+        margin-left: 10vmax;
+        div{
+          width: 114%;
+
+          input, select,textarea {
+            padding: 1.5vmax 5vmax;
+          }
+
+        }
+      }
   }

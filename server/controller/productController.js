@@ -14,6 +14,7 @@ exports.createProd = AsyncErr(async (req, res , next)=>{
     }else{
         images = req.body.images
     }
+    console.log("body" )
 
 
     const imagesLink = [];
@@ -25,18 +26,25 @@ exports.createProd = AsyncErr(async (req, res , next)=>{
         result = await cloudinary.v2.uploader.upload(images[i], {
           folder: "products",
         });
+        console.log("Reasule",i, images.length) 
 
         imagesLink.push({
           public_id: result.public_id,
           url: result.secure_url
         });
         i++;
+        console.log(imagesLink)
       }
+
+      console.log("peid2", req.body)
 
       req.body.images = imagesLink;
     req.body.user = req.user.id;    // req.user data came from middleware
+    console.log("peid1", req.body)
 
     const product = await Product.create(req.body);
+
+    console.log("peid", req.body)
 
     res.status(201).json({
         success: true,

@@ -11,6 +11,7 @@ import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
 import {deleteProduct } from "../../../Actions/productAction";
 import {Delete_Product_Reset, Delete_Review_Reset} from "../../../Constants/productConstant"
+import Box from "@mui/material/Box"
 
 import "./review.scss"
 
@@ -160,14 +161,16 @@ const [id ,setId] = useState("");
 
             {
                 reviews && reviews.length > 0 ?
+          <Box sx={{ height: 400, width: '78vw' }} className='Box1111'>
+
                 <DataGrid
               rows={rows}
               columns={columns}
               pageSize={10}
               disableSelectionOnClick
               className='productListTable broTable'
-              autoHeight
-            ></DataGrid>:
+            ></DataGrid>
+            </Box>:
             "No Reviews"
             }
         
